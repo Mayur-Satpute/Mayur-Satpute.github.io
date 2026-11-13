@@ -387,7 +387,7 @@ export default function Home() {
             </div>
 
             <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-xl border-border">
-              <a href="/images/resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="h-3.5 w-3.5 mr-1.5" /> Resume
               </a>
             </Button>
@@ -456,7 +456,7 @@ export default function Home() {
                 </Button>
 
                 <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-accent rounded-xl text-xs sm:text-sm px-4">
-                  <a href="/images/resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
                     <Download className="h-4 w-4 mr-1.5 shrink-0" /> Download Resume
                   </a>
                 </Button>
