@@ -192,21 +192,47 @@ function ContactForm() {
         )}
       </div>
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full min-h-[44px] bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
-      >
-        <Send className="h-4 w-4" /> Send Message
-      </Button>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full min-h-[46px] bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+        >
+          <Send className="h-4 w-4" /> Send Email
+        </Button>
+
+        <a
+          href="https://wa.me/919172072739?text=Hi%20Mayur%2C%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+        >
+          <MessageCircle className="h-4 w-4" /> Quick WhatsApp Chat
+        </a>
+      </div>
+
+      <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-1 px-1">
+        <span>⚡ Quick reply within a few hours</span>
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard.writeText("mayursatpute246@gmail.com");
+            setSubmitted(true);
+            setTimeout(() => setSubmitted(false), 3000);
+          }}
+          className="hover:text-primary transition-colors underline decoration-dotted"
+        >
+          Copy email address
+        </button>
+      </div>
 
       {submitted && (
         <motion.p
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-xs text-emerald-600 dark:text-emerald-400 text-center font-medium"
+          className="text-xs text-emerald-600 dark:text-emerald-400 text-center font-medium bg-emerald-500/10 py-2 rounded-lg border border-emerald-500/20"
         >
-          Opening your email client... Looking forward to speaking!
+          Email address copied / Opening email client! Looking forward to connecting.
         </motion.p>
       )}
     </form>
