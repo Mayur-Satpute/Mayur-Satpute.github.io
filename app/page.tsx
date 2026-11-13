@@ -40,7 +40,8 @@ import {
   UserCheck,
   BriefcaseBusiness,
   Network,
-  Youtube
+  Youtube,
+  PenTool
 } from "lucide-react";
 
 // Animation Variants (tasteful, fast, lightweight)
@@ -307,6 +308,16 @@ export default function Home() {
       github: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       demo: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       icon: <Youtube className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "BlogScript Django Platform",
+      category: "Full Stack & Content Publishing",
+      tag: "Backend",
+      description: "Modern, feature-rich blog publishing platform built on Django with full user authentication, author profile customization, tag-based categorization, rich-text markdown drafting, and comment workflows.",
+      skills: ["Python", "Django", "Django ORM", "Authentication", "CRUD", "HTML/CSS", "Bootstrap"],
+      github: "https://github.com/Mayur-Satpute/BlogScript-Django",
+      demo: "https://github.com/Mayur-Satpute/BlogScript-Django",
+      icon: <PenTool className="h-6 w-6 text-primary" />
     }
   ];
 
