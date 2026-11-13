@@ -16,18 +16,19 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mayur-satpute.github.io'),
-  title: 'Mayur Satpute | Software Engineer & Python Backend Developer',
+  title: 'Mayur Satpute | Software Engineer & Tech Creator (@buildwithmayurr)',
   description:
-    'Portfolio of Mayur Satpute - Software Engineer specializing in Python, Django, REST APIs, ERP Modernization, and Generative AI applications.',
+    'Portfolio of Mayur Satpute - Software Engineer & Tech Creator (@buildwithmayurr) specializing in Python, Django, REST APIs, ERP Modernization, and Generative AI applications.',
   keywords: [
     'Mayur Satpute',
     'Software Engineer',
+    'Tech Creator',
+    'buildwithmayurr',
     'Python Backend Developer',
     'Django REST Framework',
     'NextJS',
     'PostgreSQL',
     'ERP Modernization',
-    'buildwithmayurr',
     'AI Developer',
   ],
   authors: [{ name: 'Mayur Satpute', url: 'https://mayur-satpute.github.io' }],
@@ -41,9 +42,9 @@ export const metadata: Metadata = {
     google: 'ec8OJqrCxqBlvOwiljzcJdxgZYICMvpCP8HY2kOCazc',
   },
   openGraph: {
-    title: 'Mayur Satpute | Software Engineer & Python Backend Developer',
+    title: 'Mayur Satpute | Software Engineer & Tech Creator',
     description:
-      'Explore projects, experience, and tech stacks of Mayur Satpute - Software Engineer specializing in Python, Django, and Web App Modernization.',
+      'Explore projects, engineering experience, and technical creations of Mayur Satpute (@buildwithmayurr) - Software Engineer & Tech Creator.',
     url: 'https://mayur-satpute.github.io/',
     siteName: 'Mayur Satpute Portfolio',
     locale: 'en_US',

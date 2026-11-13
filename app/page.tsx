@@ -64,10 +64,10 @@ const staggerContainer = {
 // Natural Role Cycler (Calm, understated)
 function RoleCycler() {
   const roles = [
-    "Python Backend Developer",
-    "Software Engineer",
-    "Django REST Specialist",
     "Tech Creator @buildwithmayurr",
+    "Software Engineer",
+    "Python Backend Developer",
+    "Django REST Specialist",
     "Generative AI Builder"
   ];
   const [index, setIndex] = useState(0);
@@ -260,10 +260,10 @@ export default function Home() {
   };
 
   const highlights = [
-    { label: "Role", value: "Software Engineer" },
+    { label: "Engineering", value: "Software Engineer" },
+    { label: "Content & Tech", value: "Tech Creator @buildwithmayurr" },
     { label: "Core Stack", value: "Python • Django • SQL" },
-    { label: "Modernization", value: "ERP & Cloud Web Apps" },
-    { label: "Creator", value: "@buildwithmayurr" }
+    { label: "Modernization", value: "ERP & Cloud Web Apps" }
   ];
 
   const experiences = [
@@ -540,9 +540,9 @@ export default function Home() {
             <div className="w-full flex-1 space-y-4 text-center lg:text-left">
 
               {/* Status Pill (Calm Sage / Emerald) */}
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                Available for Software & Backend Roles
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Software Engineer & Tech Creator • Open to Opportunities
               </motion.div>
 
               {/* Headline */}
@@ -557,7 +557,7 @@ export default function Home() {
 
               {/* Subtext */}
               <motion.p variants={fadeIn} className="text-sm sm:text-base md:text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Software Engineer specializing in <span className="text-foreground font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex enterprise systems. Focused on clean architecture, reliable database workflows, and developer tools.
+                Software Engineer & Tech Creator specializing in <span className="text-foreground font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex systems. Documenting developer journeys and building real-world AI applications for <span className="text-foreground font-medium">@buildwithmayurr</span>.
               </motion.p>
 
               {/* Meta Location & Creator Tag */}
@@ -630,7 +630,7 @@ export default function Home() {
                     <div className="w-full flex items-center justify-between">
                       <div>
                         <p className="text-base sm:text-lg font-bold text-foreground">Mayur Satpute</p>
-                        <p className="text-xs text-muted-foreground font-medium">Software Engineer • Creator</p>
+                        <p className="text-xs text-muted-foreground font-medium">Software Engineer • Tech Creator</p>
                       </div>
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 backdrop-blur-md">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
