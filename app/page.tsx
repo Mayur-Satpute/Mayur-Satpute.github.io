@@ -1033,10 +1033,10 @@ export default function Home() {
                   icon: <Mail className="h-4 w-4 text-primary shrink-0" />
                 },
                 {
-                  label: "Phone / Call",
-                  value: "+91 9172072739",
-                  href: "tel:+919172072739",
-                  icon: <Phone className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  label: "Instagram (Tech Creator)",
+                  value: "@buildwithmayurr",
+                  href: "https://www.instagram.com/buildwithmayurr/",
+                  icon: <Instagram className="h-4 w-4 text-rose-500 shrink-0" />
                 },
                 {
                   label: "WhatsApp",
@@ -1055,12 +1055,6 @@ export default function Home() {
                   value: "github.com/Mayur-Satpute",
                   href: "https://github.com/Mayur-Satpute",
                   icon: <Github className="h-4 w-4 text-foreground shrink-0" />
-                },
-                {
-                  label: "Instagram (Creator)",
-                  value: "@buildwithmayurr",
-                  href: "https://www.instagram.com/buildwithmayurr/",
-                  icon: <Instagram className="h-4 w-4 text-rose-500 shrink-0" />
                 }
               ].map((item, idx) => (
                 <a
