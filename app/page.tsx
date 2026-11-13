@@ -579,10 +579,63 @@ export default function Home() {
           </TabsContent>
         </Tabs>
 
-        {/* Minimal Footer */}
-        <footer className="mt-20 pt-8 border-t border-white/[0.06] text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Mayur Satpute. Built with Next.js, Tailwind CSS & Framer Motion.</p>
-        </footer>
+          {/* Impressive & Professional Footer */}
+          <footer className="mt-24 pt-12 pb-8 border-t border-white/[0.08] relative">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
+
+              {/* Brand / Tagline */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+                    MS
+                  </div>
+                  <span className="text-base font-bold text-white tracking-tight">Mayur Satpute</span>
+                </div>
+                <p className="text-xs text-slate-400 max-w-sm">
+                  Software Engineer passionate about crafting scalable backend architectures, clean APIs, and modern cloud applications.
+                </p>
+              </div>
+
+              {/* Quick Social Icon Links */}
+              <div className="flex items-center gap-2">
+                {[
+                  { icon: <Github className="h-4 w-4" />, href: "https://github.com/Mayur-Satpute", title: "GitHub" },
+                  { icon: <Linkedin className="h-4 w-4" />, href: "https://linkedin.com/in/mayur7pute", title: "LinkedIn" },
+                  { icon: <Instagram className="h-4 w-4" />, href: "https://www.instagram.com/buildwithmayurr/", title: "Instagram" },
+                  { icon: <Link2 className="h-4 w-4" />, href: "https://linktr.ee/buildwithmayurr", title: "Linktree" },
+                  { icon: <Mail className="h-4 w-4" />, href: "mailto:mayursatpute246@gmail.com", title: "Email" }
+                ].map((s, idx) => (
+                  <a
+                    key={idx}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={s.title}
+                    className="p-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-slate-400 hover:text-white hover:border-blue-500/40 hover:bg-blue-500/10 transition-all"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+              <p className="flex items-center gap-1.5">
+                <span>© {new Date().getFullYear()} Mayur Satpute.</span>
+                <span>All rights reserved.</span>
+              </p>
+
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Open to Opportunities
+                </span>
+                <span className="text-slate-600">•</span>
+                <span className="text-slate-400">Mumbai, India</span>
+              </div>
+            </div>
+          </footer>
 
       </div>
     </main>
