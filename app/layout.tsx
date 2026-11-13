@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mayur Satpute | Software Engineer & Python Backend Developer',
     description: 'Portfolio of Mayur Satpute - Software Engineer specializing in Python, Django, REST APIs, and Web Application Modernization.',
-    url: 'https://mayur-satpute.github.io/Mayur-Portfolio/',
+    url: 'https://mayur-satpute.github.io/',
     siteName: 'Mayur Satpute Portfolio',
     locale: 'en_US',
     type: 'website',

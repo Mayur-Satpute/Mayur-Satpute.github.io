@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig = {
   output: 'export',
-  basePath: isProd ? '/Mayur-Portfolio' : '',
+  basePath: '',
   images: { unoptimized: true },
   eslint: {
     ignoreDuringBuilds: true,
