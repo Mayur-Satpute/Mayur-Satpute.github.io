@@ -1,11 +1,18 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+  themeColor: '#070b14',
+};
 
 export const metadata: Metadata = {
   title: 'Mayur Satpute | Software Engineer & Python Backend Developer',
   description: 'Portfolio of Mayur Satpute - Software Engineer specializing in Python, Django, REST APIs, and Web Application Modernization.',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
-  themeColor: '#070b14',
   keywords: ['Mayur Satpute', 'Software Engineer', 'Python Backend Developer', 'Django', 'REST APIs', 'buildwithmayurr'],
   authors: [{ name: 'Mayur Satpute' }],
   creator: 'Mayur Satpute',
@@ -28,9 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className="dark scroll-smooth">
+      <body className="font-sans antialiased min-h-screen selection:bg-blue-500/25 selection:text-blue-200">
+        {children}
+      </body>
     </html>
   );
 }
-
