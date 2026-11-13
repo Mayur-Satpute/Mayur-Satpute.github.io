@@ -356,13 +356,13 @@ export default function Home() {
           
           {/* Logo / Personal Mark */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted">
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted ring-1 ring-border/50">
               <img 
                 src="./images/mayur.jpg" 
                 alt="Mayur Satpute" 
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover scale-150 transition-transform"
+                style={{ objectPosition: '50% 18%' }}
                 onError={(e) => {
-                  // Fallback if relative path differs
                   const target = e.target as HTMLImageElement;
                   if (!target.src.endsWith('/images/mayur.jpg')) {
                     target.src = '/images/mayur.jpg';
@@ -481,15 +481,16 @@ export default function Home() {
             {/* Right Column: Featured Portrait & Summary (Pro Photo Display) */}
             <motion.div 
               variants={fadeIn}
-              className="w-full max-w-sm lg:w-80 xl:w-88 craft-card p-5 rounded-2xl shrink-0"
+              className="w-full max-w-sm lg:w-80 xl:w-96 craft-card p-5 sm:p-6 rounded-2xl shrink-0"
             >
-              {/* Profile Photo: Cropped, Compact, Face-Focused Avatar */}
-              <div className="flex items-center gap-4 mb-4 pb-4 border-b border-border">
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-border shadow-sm shrink-0 bg-muted">
+              {/* Profile Photo - Perfectly Focused Headshot */}
+              <div className="relative mb-5 flex flex-col items-center">
+                <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-border shadow-lg bg-muted ring-4 ring-muted/40">
                   <img
                     src="./images/mayur.jpg"
                     alt="Mayur Satpute - Software Engineer"
-                    className="w-full h-full object-cover scale-125 object-[center_15%]"
+                    className="w-full h-full object-cover scale-140 transition-transform duration-500 hover:scale-150"
+                    style={{ objectPosition: '50% 16%' }}
                     loading="eager"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -499,20 +500,20 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <p className="text-base font-bold text-foreground truncate">Mayur Satpute</p>
+                <div className="mt-3.5 text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-base font-bold text-foreground">Mayur Satpute</p>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      Available
+                    </span>
                   </div>
-                  <p className="text-xs text-muted-foreground font-medium mb-2">Software Engineer</p>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Available to hire
-                  </span>
+                  <p className="text-xs text-muted-foreground mt-0.5">Software Engineer • Python & Backend</p>
                 </div>
               </div>
 
               {/* Key Specs */}
-              <div className="space-y-2">
+              <div className="space-y-2 pt-1 border-t border-border/60">
                 {highlights.map((h, i) => (
                   <div key={i} className="flex justify-between items-center text-xs py-1 border-b border-border/40 last:border-0">
                     <span className="text-muted-foreground">{h.label}</span>
@@ -945,11 +946,12 @@ export default function Home() {
             {/* Brand Signature */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg overflow-hidden border border-border shrink-0 bg-muted">
+                <div className="w-8 h-8 rounded-full overflow-hidden border border-border shrink-0 bg-muted ring-1 ring-border/50">
                   <img 
                     src="./images/mayur.jpg" 
                     alt="Mayur" 
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover scale-150"
+                    style={{ objectPosition: '50% 18%' }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (!target.src.endsWith('/images/mayur.jpg')) {
