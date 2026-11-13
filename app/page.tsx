@@ -6,15 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Briefcase, 
-  GraduationCap, 
-  User, 
-  MessageSquare, 
-  Phone, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Briefcase,
+  GraduationCap,
+  User,
+  MessageSquare,
+  Phone,
   MessageCircle,
   Code2,
   Award,
@@ -353,7 +353,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative selection:bg-blue-500/25 selection:text-blue-400 w-full flex flex-col justify-between">
-      
+
       {/* Animated Subtle Background Atmosphere */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-grid-pattern" />
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-blue-600/10 via-indigo-600/5 to-transparent blur-3xl opacity-70 pointer-events-none -z-10" />
@@ -361,7 +361,7 @@ export default function Home() {
       {/* TOP STICKY NAVBAR */}
       <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-background/80 border-b border-border/40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
-          
+
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md group-hover:scale-105 transition-transform">
@@ -387,9 +387,9 @@ export default function Home() {
             </div>
 
             <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-xl border-border">
-              <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Download className="h-3.5 w-3.5 mr-1.5" /> Resume
-              </a>
+                <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-3.5 w-3.5 mr-1.5" /> Resume
+                </a>
             </Button>
 
             <ThemeToggle />
@@ -399,7 +399,7 @@ export default function Home() {
 
       {/* MAIN CONTAINER */}
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-14 space-y-16 sm:space-y-24 flex-1">
-        
+
         {/* 1. HERO SECTION */}
         <section id="hero" className="w-full pt-4 sm:pt-6">
           <motion.div
@@ -410,7 +410,7 @@ export default function Home() {
           >
             {/* Left Column */}
             <div className="w-full flex-1 space-y-4 text-center lg:text-left">
-              
+
               {/* Status Pill */}
               <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -437,9 +437,9 @@ export default function Home() {
                 <span className="inline-flex items-center gap-1.5 text-muted-foreground bg-accent/50 border border-border px-2.5 py-1 rounded-full">
                   <MapPin className="h-3.5 w-3.5 text-primary shrink-0" /> Mumbai, India
                 </span>
-                <a 
-                  href="https://www.instagram.com/buildwithmayurr/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/buildwithmayurr/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-medium text-pink-500 hover:text-pink-400 transition-colors bg-pink-500/10 border border-pink-500/20 px-2.5 py-1 rounded-full"
                 >
@@ -456,9 +456,9 @@ export default function Home() {
                 </Button>
 
                 <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-accent rounded-xl text-xs sm:text-sm px-4">
-                  <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                    <Download className="h-4 w-4 mr-1.5 shrink-0" /> Download Resume
-                  </a>
+                    <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                      <Download className="h-4 w-4 mr-1.5 shrink-0" /> Download Resume
+                    </a>
                 </Button>
 
                 <Button variant="outline" asChild className="min-h-[44px] border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 rounded-xl text-xs sm:text-sm px-3.5">
@@ -476,7 +476,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Styled Profile Avatar & Bento Summary */}
-            <motion.div 
+            <motion.div
               variants={fadeIn}
               whileHover={{ scale: 1.01 }}
               className="w-full max-w-sm lg:w-80 xl:w-96 glass-panel p-5 sm:p-6 rounded-3xl border border-border shadow-xl shrink-0"
@@ -521,9 +521,9 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">Executive Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg mb-6">
-              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>, 
-              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across 
-              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications. 
+              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>,
+              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across
+              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications.
               Proven ability to modernize legacy applications (.NET/C#) into scalable cloud services with clean API contracts and automated Postman test suites.
             </p>
 
@@ -654,11 +654,10 @@ export default function Home() {
                 <button
                   key={opt}
                   onClick={() => setProjectFilter(opt)}
-                  className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${
-                    projectFilter === opt
+                  className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${projectFilter === opt
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {opt}
                 </button>
@@ -833,7 +832,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto w-full">
-            
+
             {/* Interactive Form (7 cols) */}
             <motion.div
               initial="hidden"
@@ -930,7 +929,7 @@ export default function Home() {
       <footer className="mt-16 sm:mt-24 pt-8 sm:pt-12 pb-8 border-t border-border/60 bg-background/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 sm:pb-8 border-b border-border/60">
-            
+
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1.5">
               <div className="flex items-center gap-2.5">
