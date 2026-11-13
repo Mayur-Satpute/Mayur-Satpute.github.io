@@ -458,12 +458,12 @@ export default function Home() {
 
           {/* Logo / Personal Mark */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-full overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted ring-1 ring-border/50">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted ring-1 ring-border/50">
               <img
                 src="./images/mayur.jpg"
                 alt="Mayur Satpute"
-                className="w-full h-full object-cover scale-150 transition-transform"
-                style={{ objectPosition: '50% 18%' }}
+                className="w-full h-full object-cover transition-transform"
+                style={{ objectPosition: '50% 20%' }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   if (!target.src.endsWith('/images/mayur.jpg')) {
