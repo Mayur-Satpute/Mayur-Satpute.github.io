@@ -478,19 +478,20 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Column: Featured Portrait & Summary (Pro Photo Display) */}
+            {/* Right Column: Hero Portrait Showcase (Tech Influencer & Pro Engineer Layout) */}
             <motion.div 
               variants={fadeIn}
-              className="w-full max-w-sm lg:w-80 xl:w-96 craft-card p-5 sm:p-6 rounded-2xl shrink-0"
+              className="w-full max-w-md lg:w-[380px] xl:w-[430px] shrink-0"
             >
-              {/* Profile Photo - Perfectly Focused Headshot */}
-              <div className="relative mb-5 flex flex-col items-center">
-                <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-2 border-border shadow-lg bg-muted ring-4 ring-muted/40">
+              <div className="craft-card rounded-3xl p-4 sm:p-5 overflow-hidden shadow-2xl relative">
+                
+                {/* Large Pro Portrait Frame */}
+                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-muted border border-border shadow-inner group">
                   <img
                     src="./images/mayur.jpg"
-                    alt="Mayur Satpute - Software Engineer"
-                    className="w-full h-full object-cover scale-140 transition-transform duration-500 hover:scale-150"
-                    style={{ objectPosition: '50% 16%' }}
+                    alt="Mayur Satpute - Software Engineer & Tech Creator"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{ objectPosition: '50% 12%' }}
                     loading="eager"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -499,27 +500,31 @@ export default function Home() {
                       }
                     }}
                   />
-                </div>
-                <div className="mt-3.5 text-center">
-                  <div className="flex items-center justify-center gap-2">
-                    <p className="text-base font-bold text-foreground">Mayur Satpute</p>
-                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Available
-                    </span>
+                  {/* Subtle lower gradient overlay for name & status card */}
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background/95 via-background/60 to-transparent flex items-end p-4">
+                    <div className="w-full flex items-center justify-between">
+                      <div>
+                        <p className="text-base sm:text-lg font-bold text-foreground">Mayur Satpute</p>
+                        <p className="text-xs text-muted-foreground font-medium">Software Engineer • Creator</p>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/25 backdrop-blur-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Available
+                      </span>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-0.5">Software Engineer • Python & Backend</p>
                 </div>
-              </div>
 
-              {/* Key Specs */}
-              <div className="space-y-2 pt-1 border-t border-border/60">
-                {highlights.map((h, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs py-1 border-b border-border/40 last:border-0">
-                    <span className="text-muted-foreground">{h.label}</span>
-                    <span className="text-foreground font-medium text-right ml-2">{h.value}</span>
-                  </div>
-                ))}
+                {/* Specs Bento Strip below the big photo */}
+                <div className="grid grid-cols-2 gap-2 mt-3 pt-1">
+                  {highlights.map((h, i) => (
+                    <div key={i} className="p-2.5 rounded-xl bg-muted/50 border border-border/60">
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{h.label}</p>
+                      <p className="text-xs sm:text-sm font-semibold text-foreground truncate mt-0.5">{h.value}</p>
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </motion.div>
           </motion.div>
