@@ -37,7 +37,10 @@ import {
   ChevronRight,
   Menu,
   X,
-  UserCheck
+  UserCheck,
+  BriefcaseBusiness,
+  Network,
+  Youtube
 } from "lucide-react";
 
 // Animation Variants (tasteful, fast, lightweight)
@@ -261,9 +264,29 @@ export default function Home() {
       tag: "Backend",
       description: "Engineered scalable RESTful API services for an online bookstore ecosystem using Django REST Framework and Django ORM. Features robust JWT authentication, complex relational models, role permissions, and comprehensive Postman test coverage.",
       skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "SQL"],
-      github: "https://github.com/Mayur-Satpute",
-      demo: "https://github.com/Mayur-Satpute",
+      github: "https://github.com/Mayur-Satpute/online-bookstore-drf",
+      demo: "https://github.com/Mayur-Satpute/online-bookstore-drf",
       icon: <BookOpen className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "Job Portal REST API",
+      category: "Microservices & Database",
+      tag: "Backend",
+      description: "Enterprise-grade Job Portal backend engineered with Django REST Framework, MySQL database schemas, and JWT authentication. Implements fine-grained RBAC for recruiters and applicants, vacancy publishing, application lifecycle tracking, and API testing via Postman.",
+      skills: ["Python", "Django REST Framework", "MySQL", "JWT Auth", "RBAC", "Postman", "CRUD"],
+      github: "https://github.com/Mayur-Satpute/job-portal-rest-api",
+      demo: "https://github.com/Mayur-Satpute/job-portal-rest-api",
+      icon: <BriefcaseBusiness className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "Distributed Data Insertion Pipeline",
+      category: "Distributed Systems & Architecture",
+      tag: "Backend",
+      description: "Demonstrates a scalable distributed architecture pattern in Django for high-throughput batch data ingestion. Solves database write bottlenecks using concurrency handling, query optimization, and structured transaction boundaries.",
+      skills: ["Python", "Django", "Distributed Systems", "SQL Query Optimization", "Batch Ingestion"],
+      github: "https://github.com/Mayur-Satpute/django-distributed-data-insertion",
+      demo: "https://github.com/Mayur-Satpute/django-distributed-data-insertion",
+      icon: <Network className="h-6 w-6 text-primary" />
     },
     {
       title: "MultiPDF AI Assistant",
@@ -271,9 +294,19 @@ export default function Home() {
       tag: "AI",
       description: "Production-ready document intelligence app utilizing Gemini API, LangChain, FAISS vector search, and Streamlit. Enables conversational querying across multi-page PDF documents with semantic chunking and retrieval-augmented context grounding.",
       skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit"],
-      github: "https://github.com/Mayur-Satpute",
-      demo: "https://github.com/Mayur-Satpute",
+      github: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
+      demo: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
       icon: <FileText className="h-6 w-6 text-primary" />
+    },
+    {
+      title: "YouTube Transcript AI Summarizer",
+      category: "NLP & Content Intelligence",
+      tag: "AI",
+      description: "Automated YouTube video transcript extractor and multi-lingual summarizer leveraging Google Gemini Pro API. Generates concise, professional study notes, key takeaways, and action items from full video transcripts in both English and Hindi.",
+      skills: ["Python", "Gemini API", "Streamlit", "YouTube API", "NLP Summarization", "Prompt Engineering"],
+      github: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
+      demo: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
+      icon: <Youtube className="h-6 w-6 text-primary" />
     }
   ];
 
