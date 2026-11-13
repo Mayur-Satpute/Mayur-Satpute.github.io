@@ -1142,13 +1142,13 @@ export default function Home() {
 
             {/* Brand Signature */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full overflow-hidden border border-border shrink-0 bg-muted ring-1 ring-border/50">
                   <img
                     src="./images/mayur.jpg"
-                    alt="Mayur"
-                    className="w-full h-full object-cover scale-150"
-                    style={{ objectPosition: '50% 18%' }}
+                    alt="Mayur Satpute"
+                    className="w-full h-full object-cover transition-transform"
+                    style={{ objectPosition: '50% 20%' }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (!target.src.endsWith('/images/mayur.jpg')) {
@@ -1160,7 +1160,7 @@ export default function Home() {
                 <span className="text-sm font-bold text-foreground">Mayur Satpute</span>
               </div>
               <p className="text-xs text-muted-foreground max-w-md">
-                Software Engineer passionate about crafting scalable backend architectures and modern systems.
+                Software Engineer & Tech Creator passionate about crafting scalable backend architectures and modern systems.
               </p>
             </div>
 
