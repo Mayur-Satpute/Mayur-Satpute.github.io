@@ -300,7 +300,8 @@ export default function Home() {
       skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "PostgreSQL/SQL", "API Design"],
       github: "https://github.com/Mayur-Satpute/online-bookstore-drf",
       demo: "https://github.com/Mayur-Satpute/online-bookstore-drf",
-      icon: <BookOpen className="h-6 w-6 text-primary" />
+      icon: <BookOpen className="h-6 w-6 text-primary" />,
+      image: "./images/online-bookstore.jpg"
     }
   ];
 
