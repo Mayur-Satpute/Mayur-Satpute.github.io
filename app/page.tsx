@@ -260,67 +260,47 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Online Bookstore API",
-      category: "Backend Architecture",
+      title: "BlogScript – Full-Stack Django Publishing Platform",
+      category: "Full Stack & Web Application",
       tag: "Backend",
-      description: "Engineered scalable RESTful API services for an online bookstore ecosystem using Django REST Framework and Django ORM. Features robust JWT authentication, complex relational models, role permissions, and comprehensive Postman test coverage.",
-      skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "SQL"],
-      github: "https://github.com/Mayur-Satpute/online-bookstore-drf",
-      demo: "https://github.com/Mayur-Satpute/online-bookstore-drf",
-      icon: <BookOpen className="h-6 w-6 text-primary" />
+      description: "Production-grade blogging & content publishing platform engineered with Django and Bootstrap. Features end-to-end user authentication, personal author profiles, responsive dashboard, image uploads, search indexing, tag-based categorization, and full CRUD pipelines.",
+      skills: ["Python", "Django", "Django ORM", "User Auth", "CRUD", "Bootstrap", "SQLite", "Responsive UI"],
+      github: "https://github.com/Mayur-Satpute/BlogScript-Django",
+      demo: "https://github.com/Mayur-Satpute/BlogScript-Django",
+      icon: <PenTool className="h-6 w-6 text-primary" />,
+      image: "https://raw.githubusercontent.com/Mayur-Satpute/BlogScript-Django/main/screenshots/home.png"
     },
     {
-      title: "Job Portal REST API",
-      category: "Microservices & Database",
-      tag: "Backend",
-      description: "Enterprise-grade Job Portal backend engineered with Django REST Framework, MySQL database schemas, and JWT authentication. Implements fine-grained RBAC for recruiters and applicants, vacancy publishing, application lifecycle tracking, and API testing via Postman.",
-      skills: ["Python", "Django REST Framework", "MySQL", "JWT Auth", "RBAC", "Postman", "CRUD"],
-      github: "https://github.com/Mayur-Satpute/job-portal-rest-api",
-      demo: "https://github.com/Mayur-Satpute/job-portal-rest-api",
-      icon: <BriefcaseBusiness className="h-6 w-6 text-primary" />
-    },
-    {
-      title: "Distributed Data Insertion Pipeline",
-      category: "Distributed Systems & Architecture",
-      tag: "Backend",
-      description: "Demonstrates a scalable distributed architecture pattern in Django for high-throughput batch data ingestion. Solves database write bottlenecks using concurrency handling, query optimization, and structured transaction boundaries.",
-      skills: ["Python", "Django", "Distributed Systems", "SQL Query Optimization", "Batch Ingestion"],
-      github: "https://github.com/Mayur-Satpute/django-distributed-data-insertion",
-      demo: "https://github.com/Mayur-Satpute/django-distributed-data-insertion",
-      icon: <Network className="h-6 w-6 text-primary" />
-    },
-    {
-      title: "MultiPDF AI Assistant",
-      category: "Generative AI & RAG",
+      title: "MultiPDF AI Assistant – RAG & Document Intelligence",
+      category: "Generative AI & LLM Systems",
       tag: "AI",
-      description: "Production-ready document intelligence app utilizing Gemini API, LangChain, FAISS vector search, and Streamlit. Enables conversational querying across multi-page PDF documents with semantic chunking and retrieval-augmented context grounding.",
-      skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit"],
+      description: "Enterprise document intelligence application powered by Google Gemini API, LangChain, FAISS vector indexing, and Streamlit. Enables real-time conversational querying across complex multi-page PDF documents with semantic chunking and retrieval-augmented context grounding.",
+      skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit", "Prompt Engineering"],
       github: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
       demo: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
       icon: <FileText className="h-6 w-6 text-primary" />,
       image: "https://github.com/user-attachments/assets/00dbba16-016f-4dca-84c7-cd52b0d2ff32"
     },
     {
-      title: "YouTube Transcript AI Summarizer",
+      title: "YouTube Transcript AI Summarizer & Notes Generator",
       category: "NLP & Content Intelligence",
       tag: "AI",
-      description: "Automated YouTube video transcript extractor and multi-lingual summarizer leveraging Google Gemini Pro API. Generates concise, professional study notes, key takeaways, and action items from full video transcripts in both English and Hindi.",
-      skills: ["Python", "Gemini API", "Streamlit", "YouTube API", "NLP Summarization", "Prompt Engineering"],
+      description: "Automated video intelligence and multilingual summarization tool leveraging Google Gemini Pro API. Parses YouTube video transcripts in English and Hindi, generating concise study notes, executive takeaways, and action items through a clean Streamlit interface.",
+      skills: ["Python", "Gemini API", "Streamlit", "YouTube API", "NLP Summarization", "Multilingual (EN/HI)", "Python-dotenv"],
       github: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       demo: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       icon: <Youtube className="h-6 w-6 text-primary" />,
       image: "https://raw.githubusercontent.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer/main/Screenshot%20(7).png"
     },
     {
-      title: "BlogScript Django Platform",
-      category: "Full Stack & Content Publishing",
+      title: "Online Bookstore RESTful API",
+      category: "Backend Architecture & API Security",
       tag: "Backend",
-      description: "Modern, feature-rich blog publishing platform built on Django with full user authentication, author profile customization, tag-based categorization, rich-text markdown drafting, and comment workflows.",
-      skills: ["Python", "Django", "Django ORM", "Authentication", "CRUD", "HTML/CSS", "Bootstrap"],
-      github: "https://github.com/Mayur-Satpute/BlogScript-Django",
-      demo: "https://github.com/Mayur-Satpute/BlogScript-Django",
-      icon: <PenTool className="h-6 w-6 text-primary" />,
-      image: "https://raw.githubusercontent.com/Mayur-Satpute/BlogScript-Django/main/screenshots/home.png"
+      description: "High-performance REST API services for an eCommerce bookstore architecture built with Django REST Framework. Architected with robust JWT authentication, fine-grained role-based permissions (RBAC), relational database models, filtering, and rigorous Postman test suites.",
+      skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "PostgreSQL/SQL", "API Design"],
+      github: "https://github.com/Mayur-Satpute/online-bookstore-drf",
+      demo: "https://github.com/Mayur-Satpute/online-bookstore-drf",
+      icon: <BookOpen className="h-6 w-6 text-primary" />
     }
   ];
 
