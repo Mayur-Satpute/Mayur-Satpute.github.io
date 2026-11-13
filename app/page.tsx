@@ -14,27 +14,30 @@ import {
   GraduationCap, 
   MessageSquare, 
   Phone, 
-  MessageCircle,
-  Code2,
-  Award,
-  Sparkles,
-  MapPin,
-  Instagram,
-  Terminal,
-  Database,
-  Cpu,
-  Layers,
-  ArrowUpRight,
-  CheckCircle2,
-  Link2,
-  Download,
-  Send,
-  ExternalLink,
-  BookOpen,
-  FileText,
-  Filter,
-  Check,
-  ChevronRight
+  MessageCircle, 
+  Code2, 
+  Award, 
+  Sparkles, 
+  MapPin, 
+  Instagram, 
+  Terminal, 
+  Database, 
+  Cpu, 
+  Layers, 
+  ArrowUpRight, 
+  CheckCircle2, 
+  Link2, 
+  Download, 
+  Send, 
+  ExternalLink, 
+  BookOpen, 
+  FileText, 
+  Filter, 
+  Check, 
+  ChevronRight,
+  Menu,
+  X,
+  UserCheck
 } from "lucide-react";
 
 // Animation Variants (tasteful, fast, lightweight)
@@ -208,6 +211,18 @@ function ContactForm() {
 
 export default function Home() {
   const [projectFilter, setProjectFilter] = useState("All");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const highlights = [
     { label: "Role", value: "Software Engineer" },
@@ -376,7 +391,7 @@ export default function Home() {
           </a>
 
           {/* Nav Items & Theme Toggle */}
-          <nav className="flex items-center gap-1 sm:gap-2">
+          <nav className="flex items-center gap-1.5 sm:gap-2">
             <div className="hidden md:flex items-center gap-1 mr-2">
               {navLinks.map((link) => (
                 <a
@@ -396,8 +411,58 @@ export default function Home() {
             </Button>
 
             <ThemeToggle />
+
+            {/* Mobile Menu Hamburger Button */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden w-9 h-9 rounded-xl border-border bg-background"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-4 w-4 text-foreground" />
+              ) : (
+                <Menu className="h-4 w-4 text-foreground" />
+              )}
+            </Button>
           </nav>
         </div>
+
+        {/* Mobile Dropdown Menu Drawer */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="md:hidden border-b border-border bg-background/95 backdrop-blur-xl px-4 py-4 overflow-hidden"
+            >
+              <div className="flex flex-col space-y-1.5">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground/60" />
+                  </a>
+                ))}
+
+                <div className="pt-2 mt-2 border-t border-border/60">
+                  <Button asChild className="w-full min-h-[44px] bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl text-sm justify-center">
+                    <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" onClick={() => setMobileMenuOpen(false)}>
+                      <Download className="h-4 w-4 mr-2" /> Download Resume
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* MAIN CONTENT CANVAS */}
