@@ -290,6 +290,13 @@ export default function Home() {
       category: "Full Stack & Web Application",
       tag: "Backend",
       description: "Production-grade blogging & content publishing platform engineered with Django and Bootstrap. Features end-to-end user authentication, personal author profiles, responsive dashboard, image uploads, search indexing, tag-based categorization, and full CRUD pipelines.",
+      architecture: [
+        "Django MVC Architecture with clean separation of models, forms, and views",
+        "Custom User Profiles with image asset management and media storage pipelines",
+        "Query-optimized search & categorization indexing across personal and public posts",
+        "Responsive Bootstrap UI engineered with mobile-first CSS breakpoints"
+      ],
+      metrics: "Authentication • Profile Dashboard • Image Uploads • Full CRUD",
       skills: ["Python", "Django", "Django ORM", "User Auth", "CRUD", "Bootstrap", "SQLite", "Responsive UI"],
       github: "https://github.com/Mayur-Satpute/BlogScript-Django",
       demo: "https://github.com/Mayur-Satpute/BlogScript-Django",
@@ -301,6 +308,13 @@ export default function Home() {
       category: "Generative AI & LLM Systems",
       tag: "AI",
       description: "Enterprise document intelligence application powered by Google Gemini API, LangChain, FAISS vector indexing, and Streamlit. Enables real-time conversational querying across complex multi-page PDF documents with semantic chunking and retrieval-augmented context grounding.",
+      architecture: [
+        "PyPDF text extraction with sliding-window chunking via RecursiveCharacterTextSplitter",
+        "High-dimensional vector embeddings with Google Gemini Embedding model",
+        "FAISS localized vector indexing for low-latency top-k semantic similarity search",
+        "Context-grounded prompt template chain minimizing hallucinations"
+      ],
+      metrics: "Multi-PDF Upload • Vector Similarity Search • Sub-second Retrieval",
       skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit", "Prompt Engineering"],
       github: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
       demo: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
@@ -312,6 +326,13 @@ export default function Home() {
       category: "NLP & Content Intelligence",
       tag: "AI",
       description: "Automated video intelligence and multilingual summarization tool leveraging Google Gemini Pro API. Parses YouTube video transcripts in English and Hindi, generating concise study notes, executive takeaways, and action items through a clean Streamlit interface.",
+      architecture: [
+        "Automated YouTube Transcript API ingestion handling timestamped captions",
+        "Multilingual NLP parsing pipeline with language detection (English & Hindi)",
+        "Prompt-engineered structured synthesis: key points, takeaways, and exam notes",
+        "Decoupled Streamlit frontend with asynchronous API state management"
+      ],
+      metrics: "Bilingual (EN / HI) • Instant Note Generation • Automated Timestamps",
       skills: ["Python", "Gemini API", "Streamlit", "YouTube API", "NLP Summarization", "Multilingual (EN/HI)", "Python-dotenv"],
       github: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       demo: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
@@ -323,6 +344,13 @@ export default function Home() {
       category: "Backend Architecture & API Security",
       tag: "Backend",
       description: "High-performance REST API services for an eCommerce bookstore architecture built with Django REST Framework. Architected with robust JWT authentication, fine-grained role-based permissions (RBAC), relational database models, filtering, and rigorous Postman test suites.",
+      architecture: [
+        "Normalized relational database schema covering Users, Books, Cart, and Orders",
+        "Custom JWT authentication with rotating access & refresh tokens",
+        "Granular RBAC permissions distinguishing Admin managers from Customers",
+        "Automated test suites & Postman collection covering end-to-end checkout"
+      ],
+      metrics: "JWT Auth • Granular RBAC • Relational Schemas • Automated Tests",
       skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "PostgreSQL/SQL", "API Design"],
       github: "https://github.com/Mayur-Satpute/online-bookstore-drf",
       demo: "https://github.com/Mayur-Satpute/online-bookstore-drf",
@@ -875,14 +903,38 @@ export default function Home() {
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">
-                        {proj.title}
-                      </h3>
-                      <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6">
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+                    <div className="space-y-3.5">
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground tracking-tight">
+                          {proj.title}
+                        </h3>
+                        {proj.metrics && (
+                          <p className="text-xs font-semibold text-primary/90 mt-1">
+                            {proj.metrics}
+                          </p>
+                        )}
+                      </div>
+                      <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                         {proj.description}
                       </p>
+
+                      {/* Technical Architecture Breakdown */}
+                      {proj.architecture && (
+                        <div className="pt-2">
+                          <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-2">
+                            Key Architecture Highlights:
+                          </p>
+                          <ul className="space-y-1.5">
+                            {proj.architecture.map((item, aIdx) => (
+                              <li key={aIdx} className="flex items-start gap-2 text-xs text-foreground/90 leading-normal">
+                                <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border">
