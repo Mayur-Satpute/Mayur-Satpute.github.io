@@ -63,6 +63,7 @@
     width: 100%;
     min-height: 100%;
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Ensures sticky navbar never covers section titles */
     overflow-x: hidden;
   }
   body {

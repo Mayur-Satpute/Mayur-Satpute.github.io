@@ -6,34 +6,34 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Briefcase, 
-  GraduationCap, 
-  MessageSquare, 
-  Phone, 
-  MessageCircle, 
-  Code2, 
-  Award, 
-  Sparkles, 
-  MapPin, 
-  Instagram, 
-  Terminal, 
-  Database, 
-  Cpu, 
-  Layers, 
-  ArrowUpRight, 
-  CheckCircle2, 
-  Link2, 
-  Download, 
-  Send, 
-  ExternalLink, 
-  BookOpen, 
-  FileText, 
-  Filter, 
-  Check, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Briefcase,
+  GraduationCap,
+  MessageSquare,
+  Phone,
+  MessageCircle,
+  Code2,
+  Award,
+  Sparkles,
+  MapPin,
+  Instagram,
+  Terminal,
+  Database,
+  Cpu,
+  Layers,
+  ArrowUpRight,
+  CheckCircle2,
+  Link2,
+  Download,
+  Send,
+  ExternalLink,
+  BookOpen,
+  FileText,
+  Filter,
+  Check,
   ChevronRight,
   Menu,
   X,
@@ -213,16 +213,21 @@ export default function Home() {
   const [projectFilter, setProjectFilter] = useState("All");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Close mobile menu on resize to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setMobileMenuOpen(false);
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    // Allow dropdown exit animation to conclude, then accurately scroll to section
+    setTimeout(() => {
+      const targetId = href.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Update URL hash without abrupt jump
+        window.history.pushState(null, "", href);
       }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    }, 120);
+  };
 
   const highlights = [
     { label: "Role", value: "Software Engineer" },
@@ -361,20 +366,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative selection:bg-primary/20 selection:text-primary w-full flex flex-col justify-between">
-      
+
       {/* Background Architectural Dot Grid */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-grid-subtle" />
 
       {/* TOP NAVIGATION BAR */}
       <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/90 border-b border-border transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
-          
+
           {/* Logo / Personal Mark */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 rounded-full overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted ring-1 ring-border/50">
-              <img 
-                src="./images/mayur.jpg" 
-                alt="Mayur Satpute" 
+              <img
+                src="./images/mayur.jpg"
+                alt="Mayur Satpute"
                 className="w-full h-full object-cover scale-150 transition-transform"
                 style={{ objectPosition: '50% 18%' }}
                 onError={(e) => {
@@ -391,42 +396,43 @@ export default function Home() {
           </a>
 
           {/* Nav Items & Theme Toggle */}
-          <nav className="flex items-center gap-1.5 sm:gap-2">
-            <div className="hidden md:flex items-center gap-1 mr-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                >
-                  {link.label}
+            <nav className="flex items-center gap-1.5 sm:gap-2">
+              <div className="hidden md:flex items-center gap-1 mr-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-lg border-border hover:bg-muted font-medium">
+                <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" /> Resume
                 </a>
-              ))}
-            </div>
+              </Button>
 
-            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-lg border-border hover:bg-muted font-medium">
-              <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Download className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" /> Resume
-              </a>
-            </Button>
+              <ThemeToggle />
 
-            <ThemeToggle />
-
-            {/* Mobile Menu Hamburger Button */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden w-9 h-9 rounded-xl border-border bg-background"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            >
-              {mobileMenuOpen ? (
-                <X className="h-4 w-4 text-foreground" />
-              ) : (
-                <Menu className="h-4 w-4 text-foreground" />
-              )}
-            </Button>
-          </nav>
+              {/* Mobile Menu Hamburger Button */}
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden w-9 h-9 rounded-xl border-border bg-background"
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-4 w-4 text-foreground" />
+                ) : (
+                  <Menu className="h-4 w-4 text-foreground" />
+                )}
+              </Button>
+            </nav>
         </div>
 
         {/* Mobile Dropdown Menu Drawer */}
@@ -444,8 +450,8 @@ export default function Home() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-muted hover:text-primary transition-colors cursor-pointer"
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="h-4 w-4 text-muted-foreground/60" />
@@ -467,7 +473,7 @@ export default function Home() {
 
       {/* MAIN CONTENT CANVAS */}
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-14 space-y-16 sm:space-y-24 flex-1">
-        
+
         {/* 1. HERO SECTION */}
         <section id="hero" className="w-full pt-2 sm:pt-6">
           <motion.div
@@ -478,7 +484,7 @@ export default function Home() {
           >
             {/* Left Content Column */}
             <div className="w-full flex-1 space-y-4 text-center lg:text-left">
-              
+
               {/* Status Pill (Calm Sage / Emerald) */}
               <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -505,9 +511,9 @@ export default function Home() {
                 <span className="inline-flex items-center gap-1.5 text-muted-foreground bg-muted/60 border border-border px-3 py-1 rounded-full">
                   <MapPin className="h-3.5 w-3.5 text-primary shrink-0" /> Mumbai, India
                 </span>
-                <a 
-                  href="https://www.instagram.com/buildwithmayurr/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/buildwithmayurr/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors bg-muted/60 border border-border px-3 py-1 rounded-full"
                 >
@@ -544,12 +550,12 @@ export default function Home() {
             </div>
 
             {/* Right Column: Hero Portrait Showcase (Tech Influencer & Pro Engineer Layout) */}
-            <motion.div 
+            <motion.div
               variants={fadeIn}
               className="w-full max-w-md lg:w-[380px] xl:w-[430px] shrink-0"
             >
               <div className="craft-card rounded-3xl p-4 sm:p-5 overflow-hidden shadow-2xl relative">
-                
+
                 {/* Large Pro Portrait Frame */}
                 <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-muted border border-border shadow-inner group">
                   <img
@@ -609,9 +615,9 @@ export default function Home() {
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">Executive Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg mb-6">
-              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>, 
-              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across 
-              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications. 
+              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>,
+              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across
+              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications.
               Experienced in converting legacy applications (.NET/C#) into modern cloud-ready platforms with clean API architectures and automated Postman test suites.
             </p>
 
@@ -739,11 +745,10 @@ export default function Home() {
                 <button
                   key={opt}
                   onClick={() => setProjectFilter(opt)}
-                  className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
-                    projectFilter === opt
+                  className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${projectFilter === opt
                       ? "bg-background text-foreground shadow-sm border border-border"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {opt}
                 </button>
@@ -915,7 +920,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 max-w-5xl mx-auto w-full">
-            
+
             {/* Functional Form */}
             <motion.div
               initial="hidden"
@@ -1012,14 +1017,14 @@ export default function Home() {
       <footer className="mt-16 sm:mt-24 pt-8 pb-8 border-t border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-border">
-            
+
             {/* Brand Signature */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full overflow-hidden border border-border shrink-0 bg-muted ring-1 ring-border/50">
-                  <img 
-                    src="./images/mayur.jpg" 
-                    alt="Mayur" 
+                  <img
+                    src="./images/mayur.jpg"
+                    alt="Mayur"
                     className="w-full h-full object-cover scale-150"
                     style={{ objectPosition: '50% 18%' }}
                     onError={(e) => {
