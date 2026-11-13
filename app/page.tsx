@@ -481,15 +481,15 @@ export default function Home() {
             {/* Right Column: Featured Portrait & Summary (Pro Photo Display) */}
             <motion.div 
               variants={fadeIn}
-              className="w-full max-w-sm lg:w-80 xl:w-96 craft-card p-5 sm:p-6 rounded-2xl shrink-0"
+              className="w-full max-w-sm lg:w-80 xl:w-88 craft-card p-5 rounded-2xl shrink-0"
             >
-              {/* Profile Photo in Clean Frame */}
-              <div className="relative mb-4 overflow-hidden rounded-xl border border-border bg-muted">
-                <div className="aspect-[4/5] w-full overflow-hidden">
+              {/* Profile Photo: Cropped, Compact, Face-Focused Avatar */}
+              <div className="flex items-center gap-4 mb-4 pb-4 border-b border-border">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-border shadow-sm shrink-0 bg-muted">
                   <img
                     src="./images/mayur.jpg"
                     alt="Mayur Satpute - Software Engineer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover scale-125 object-[center_15%]"
                     loading="eager"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -499,22 +499,22 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="p-3 bg-card border-t border-border flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">Mayur Satpute</p>
-                    <p className="text-xs text-muted-foreground">Software Engineer</p>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <p className="text-base font-bold text-foreground truncate">Mayur Satpute</p>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    Available
+                  <p className="text-xs text-muted-foreground font-medium mb-2">Software Engineer</p>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Available to hire
                   </span>
                 </div>
               </div>
 
               {/* Key Specs */}
-              <div className="space-y-2 pt-1">
+              <div className="space-y-2">
                 {highlights.map((h, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs py-1 border-b border-border/50 last:border-0">
+                  <div key={i} className="flex justify-between items-center text-xs py-1 border-b border-border/40 last:border-0">
                     <span className="text-muted-foreground">{h.label}</span>
                     <span className="text-foreground font-medium text-right ml-2">{h.value}</span>
                   </div>
