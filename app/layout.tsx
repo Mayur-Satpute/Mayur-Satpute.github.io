@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Mayur Satpute | Software Engineer & Python Backend Developer',
   description: 'Portfolio of Mayur Satpute - Software Engineer specializing in Python, Django, REST APIs, and Web Application Modernization.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  themeColor: '#070b14',
   keywords: ['Mayur Satpute', 'Software Engineer', 'Python Backend Developer', 'Django', 'REST APIs', 'buildwithmayurr'],
   authors: [{ name: 'Mayur Satpute' }],
   creator: 'Mayur Satpute',
