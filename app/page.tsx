@@ -297,7 +297,8 @@ export default function Home() {
       skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit"],
       github: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
       demo: "https://github.com/Mayur-Satpute/Chat-with-Multi-PDF-s-using-Gemini-AI",
-      icon: <FileText className="h-6 w-6 text-primary" />
+      icon: <FileText className="h-6 w-6 text-primary" />,
+      image: "https://github.com/user-attachments/assets/00dbba16-016f-4dca-84c7-cd52b0d2ff32"
     },
     {
       title: "YouTube Transcript AI Summarizer",
@@ -307,7 +308,8 @@ export default function Home() {
       skills: ["Python", "Gemini API", "Streamlit", "YouTube API", "NLP Summarization", "Prompt Engineering"],
       github: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
       demo: "https://github.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer",
-      icon: <Youtube className="h-6 w-6 text-primary" />
+      icon: <Youtube className="h-6 w-6 text-primary" />,
+      image: "https://raw.githubusercontent.com/Mayur-Satpute/Youtube_Video_Transcript_summarizer/main/Screenshot%20(7).png"
     },
     {
       title: "BlogScript Django Platform",
@@ -317,7 +319,8 @@ export default function Home() {
       skills: ["Python", "Django", "Django ORM", "Authentication", "CRUD", "HTML/CSS", "Bootstrap"],
       github: "https://github.com/Mayur-Satpute/BlogScript-Django",
       demo: "https://github.com/Mayur-Satpute/BlogScript-Django",
-      icon: <PenTool className="h-6 w-6 text-primary" />
+      icon: <PenTool className="h-6 w-6 text-primary" />,
+      image: "https://raw.githubusercontent.com/Mayur-Satpute/BlogScript-Django/main/screenshots/home.png"
     }
   ];
 
@@ -815,19 +818,35 @@ export default function Home() {
                   transition={{ duration: 0.2 }}
                   className="craft-card rounded-2xl overflow-hidden flex flex-col justify-between"
                 >
-                  {/* Clean Technical Canvas Header */}
-                  <div className="h-40 sm:h-44 w-full bg-muted/40 border-b border-border p-6 flex flex-col justify-between relative">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-medium uppercase tracking-wider text-primary bg-background px-2.5 py-0.5 rounded-full border border-border">
+                  {/* Project Visual Canvas / Screenshot Header */}
+                  <div className="h-44 sm:h-52 w-full bg-muted/40 border-b border-border flex flex-col justify-between relative overflow-hidden group">
+                    {/* Background Screenshot if available */}
+                    {proj.image ? (
+                      <>
+                        <img
+                          src={proj.image}
+                          alt={`${proj.title} Preview`}
+                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-muted/30 to-background/50" />
+                    )}
+
+                    {/* Top Bar: Category Pill & Action Buttons */}
+                    <div className="relative z-10 p-4 sm:p-5 flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-foreground bg-background/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-border shadow-sm">
                         {proj.category}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background border-border">
+                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background/90 backdrop-blur-md border-border shadow-sm hover:text-primary">
                           <a href={proj.github} target="_blank" rel="noopener noreferrer" title="View GitHub Repository">
                             <Github className="h-4 w-4" />
                           </a>
                         </Button>
-                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background border-border">
+                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background/90 backdrop-blur-md border-border shadow-sm hover:text-primary">
                           <a href={proj.demo} target="_blank" rel="noopener noreferrer" title="Live Link">
                             <ExternalLink className="h-4 w-4" />
                           </a>
@@ -835,10 +854,16 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="flex items-end justify-between">
-                      <div className="p-2.5 rounded-xl bg-background border border-border shadow-sm">
+                    {/* Bottom Floating Icon Badge */}
+                    <div className="relative z-10 px-4 pb-4 sm:px-5 sm:pb-5 flex items-end justify-between">
+                      <div className="p-2.5 rounded-xl bg-background/95 backdrop-blur-md border border-border shadow-md">
                         {proj.icon}
                       </div>
+                      {proj.image && (
+                        <span className="text-[10px] font-medium tracking-wide uppercase px-2 py-0.5 rounded-md bg-background/80 backdrop-blur-md text-muted-foreground border border-border">
+                          Live Preview
+                        </span>
+                      )}
                     </div>
                   </div>
 
