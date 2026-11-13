@@ -364,8 +364,8 @@ export default function Home() {
 
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md group-hover:scale-105 transition-transform">
-              M
+            <div className="w-9 h-9 rounded-xl overflow-hidden border border-border shadow-md group-hover:scale-105 transition-transform shrink-0">
+              <img src="/images/mayur.jpg" alt="Mayur" className="w-full h-full object-cover object-top" />
             </div>
             <span className="font-bold text-base tracking-tight text-foreground group-hover:text-primary transition-colors">
               Mayur Satpute
@@ -481,23 +481,33 @@ export default function Home() {
               whileHover={{ scale: 1.01 }}
               className="w-full max-w-sm lg:w-80 xl:w-96 glass-panel p-5 sm:p-6 rounded-3xl border border-border shadow-xl shrink-0"
             >
-              <div className="flex items-center gap-3.5 pb-4 mb-4 border-b border-border/60">
-                {/* Avatar with Animated Gradient Ring */}
-                <div className="relative group shrink-0">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
-                  <div className="relative w-12 h-12 rounded-2xl bg-background border border-border flex items-center justify-center text-primary font-bold text-lg shadow-inner">
-                    MS
+              {/* Profile Photo in Styled Gradient Frame */}
+              <div className="relative mb-5 group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-500" />
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-border/80 bg-background shadow-2xl">
+                  <img
+                    src="/images/mayur.jpg"
+                    alt="Mayur Satpute - Software Engineer"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <div>
+                      <p className="text-base font-bold text-foreground drop-shadow-sm">Mayur Satpute</p>
+                      <p className="text-xs text-muted-foreground font-medium">Software Engineer</p>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 text-emerald-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Active
+                    </span>
                   </div>
-                </div>
-                <div className="text-left">
-                  <p className="text-base font-bold text-foreground">Mayur Satpute</p>
-                  <p className="text-xs text-muted-foreground">Backend & Cloud Engineer</p>
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5 pt-1">
                 {highlights.map((h, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs sm:text-sm">
+                  <div key={i} className="flex justify-between items-center text-xs sm:text-sm py-1 border-b border-border/40 last:border-0">
                     <span className="text-muted-foreground">{h.label}</span>
                     <span className="text-foreground font-medium text-right ml-2">{h.value}</span>
                   </div>
@@ -933,8 +943,8 @@ export default function Home() {
             {/* Brand */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1.5">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md shrink-0">
-                  M
+                <div className="w-8 h-8 rounded-lg overflow-hidden border border-border shadow-md shrink-0">
+                  <img src="/images/mayur.jpg" alt="Mayur" className="w-full h-full object-cover object-top" />
                 </div>
                 <span className="text-base font-bold text-foreground tracking-tight">Mayur Satpute</span>
               </div>

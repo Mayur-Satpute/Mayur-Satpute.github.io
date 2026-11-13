@@ -50,10 +50,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/favicon.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Mayur Satpute - Software Engineer Portfolio',
+        url: '/images/mayur.jpg',
+        width: 1024,
+        height: 1024,
+        alt: 'Mayur Satpute - Software Engineer',
       },
     ],
   },
