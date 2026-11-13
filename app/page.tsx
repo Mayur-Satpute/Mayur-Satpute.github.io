@@ -159,40 +159,40 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#070b14] bg-grid-pattern relative selection:bg-blue-500/20 selection:text-blue-300">
-      {/* Ambient Radial Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-blue-600/15 via-indigo-600/5 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute top-96 right-0 w-[400px] h-[400px] bg-purple-600/10 blur-[130px] pointer-events-none" />
+    <main className="min-h-screen bg-[#070b14] bg-grid-pattern relative overflow-x-hidden w-full selection:bg-blue-500/20 selection:text-blue-300">
+      {/* Ambient Radial Glows - strictly bounded */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[250px] bg-gradient-to-b from-blue-600/15 via-indigo-600/5 to-transparent blur-[80px] pointer-events-none" />
+      <div className="absolute top-96 right-0 w-[200px] h-[200px] bg-purple-600/10 blur-[80px] pointer-events-none" />
 
-      <div className="container max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-20 relative z-10">
+      <div className="container max-w-5xl mx-auto px-4 sm:px-6 py-8 md:py-20 relative z-10 w-full overflow-hidden">
 
         {/* HERO SECTION */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="mb-14 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-between gap-8 pb-12 border-b border-white/[0.08]"
+          className="mb-10 md:mb-14 text-center md:text-left flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-8 pb-10 md:pb-12 border-b border-white/[0.08] w-full"
         >
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 w-full space-y-3.5">
             {/* Status pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Available for Software & Backend Roles
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 max-w-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="truncate">Available for Software & Backend Roles</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white break-words">
               Mayur <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">Satpute</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base md:text-xl text-slate-300 font-normal max-w-2xl leading-relaxed">
               Software Engineer specializing in <span className="text-white font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex enterprise systems.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 text-xs text-slate-400">
                 <MapPin className="h-3.5 w-3.5 text-blue-400" /> Mumbai, India
               </span>
-              <span className="text-slate-600">•</span>
+              <span className="text-slate-600 hidden sm:inline">•</span>
               <a
                 href="https://www.instagram.com/buildwithmayurr/"
                 target="_blank"
@@ -203,39 +203,39 @@ export default function Home() {
               </a>
             </div>
 
-            {/* CTA Buttons */}
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 pt-3">
-                  <Button asChild className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-lg shadow-blue-500/20 transition-all rounded-lg">
-                    <a href="mailto:mayursatpute246@gmail.com">
-                      <Mail className="h-4 w-4 mr-2" /> Get in Touch
-                    </a>
-                  </Button>
+            {/* CTA Buttons - 2x2 grid on mobile, row on tablet/desktop */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center md:justify-start gap-2 pt-2 w-full">
+              <Button asChild className="col-span-2 sm:col-auto bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-lg shadow-blue-500/20 transition-all rounded-lg h-10 text-xs sm:text-sm">
+                <a href="mailto:mayursatpute246@gmail.com">
+                  <Mail className="h-4 w-4 mr-2 shrink-0" /> Get in Touch
+                </a>
+              </Button>
 
-                    <Button variant="outline" asChild className="flex-1 sm:flex-none border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 hover:text-emerald-300 rounded-lg">
-                      <a href="https://linktr.ee/buildwithmayurr" target="_blank" rel="noopener noreferrer">
-                        <Link2 className="h-4 w-4 mr-2 text-emerald-400" /> Linktree
-                      </a>
-                    </Button>
+              <Button variant="outline" asChild className="border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 hover:text-emerald-300 rounded-lg h-10 text-xs sm:text-sm">
+                <a href="https://linktr.ee/buildwithmayurr" target="_blank" rel="noopener noreferrer">
+                  <Link2 className="h-4 w-4 mr-1.5 text-emerald-400 shrink-0" /> Linktree
+                </a>
+              </Button>
 
-                      <Button variant="outline" asChild className="flex-1 sm:flex-none border-white/10 bg-slate-900/60 hover:bg-slate-800 text-slate-200 rounded-lg">
-                        <a href="https://github.com/Mayur-Satpute" target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" /> GitHub
-                        </a>
-                      </Button>
+              <Button variant="outline" asChild className="border-white/10 bg-slate-900/60 hover:bg-slate-800 text-slate-200 rounded-lg h-10 text-xs sm:text-sm">
+                <a href="https://github.com/Mayur-Satpute" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4 mr-1.5 shrink-0" /> GitHub
+                </a>
+              </Button>
 
-                        <Button variant="outline" asChild className="flex-1 sm:flex-none border-white/10 bg-slate-900/60 hover:bg-slate-800 text-slate-200 rounded-lg">
-                          <a href="https://linkedin.com/in/mayur7pute" target="_blank" rel="noopener noreferrer">
-                            <Linkedin className="h-4 w-4 mr-2" /> LinkedIn
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
+              <Button variant="outline" asChild className="col-span-2 sm:col-auto border-white/10 bg-slate-900/60 hover:bg-slate-800 text-slate-200 rounded-lg h-10 text-xs sm:text-sm">
+                <a href="https://linkedin.com/in/mayur7pute" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-4 w-4 mr-1.5 shrink-0" /> LinkedIn
+                </a>
+              </Button>
+            </div>
+          </div>
 
-                    {/* Quick Metrics Bento Card */}
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      className="w-full md:w-72 glass-panel p-5 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden"
-                    >
+          {/* Quick Metrics Bento Card */}
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="w-full max-w-sm md:w-72 glass-panel p-5 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden mx-auto md:mx-0"
+          >
                       <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
                       <div className="flex items-center gap-3 pb-4 mb-4 border-b border-white/[0.08]">
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-inner">
