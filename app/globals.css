@@ -4,48 +4,50 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Refined Razorpay/Zerodha-inspired Light Palette */
+    --background: 210 20% 98%;      /* #f8fafc Clean soft paper */
+    --foreground: 222 47% 11%;      /* #0f172a Deep graphite */
+    --card: 0 0% 100%;              /* Pure white */
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;         /* #2563eb Refined Sapphire Blue */
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 214 32% 91%;       /* #e2e8f0 Warm slate */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;           /* #f1f5f9 */
+    --muted-foreground: 215 16% 47%;/* #64748b */
+    --accent: 210 40% 94%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --border: 214 32% 91%;          /* #e2e8f0 1px divider */
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --card: 224 71% 6%;
-    --card-foreground: 213 31% 91%;
-    --popover: 224 71% 6%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 222.2 47.4% 11.2%;
+    /* CRED/Stripe-inspired Deep Slate Charcoal Palette (No neon blobs) */
+    --background: 224 35% 6%;       /* #090c15 Deep obsidian slate */
+    --foreground: 210 40% 98%;      /* #f8fafc Crisp clean text */
+    --card: 222 36% 9%;             /* #0e1321 Subdued charcoal card */
+    --card-foreground: 210 40% 98%;
+    --popover: 222 36% 9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;         /* #3b82f6 Authoritative classic blue */
+    --primary-foreground: 224 35% 6%;
+    --secondary: 215 28% 14%;       /* #172033 */
     --secondary-foreground: 210 40% 98%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 66.9%;
-    --accent: 216 34% 17%;
+    --muted: 217 33% 12%;           /* #131b2e */
+    --muted-foreground: 215 20% 65%;/* #94a3b8 */
+    --accent: 215 28% 15%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 216 34% 15%;
-    --input: 216 34% 15%;
-    --ring: 224 76.3% 48%;
+    --border: 217 33% 15%;          /* #1a233a Clean hairline border */
+    --input: 217 33% 15%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -61,39 +63,48 @@
     width: 100%;
     min-height: 100%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-200;
     width: 100%;
     min-height: 100%;
+    overflow-x: hidden;
     position: relative;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-tap-highlight-color: transparent;
   }
 }
 
-/* Responsive grid pattern */
-.bg-grid-pattern {
-  background-image: radial-gradient(currentColor 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.06;
+/* Subtle architectural dot grid */
+.bg-grid-subtle {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.dark .bg-grid-pattern {
-  opacity: 0.08;
+.dark .bg-grid-subtle {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px);
 }
 
-/* Glassmorphism utility with high cross-device support */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+/* High-craft clean card surface (Human-designed hairline border) */
+.craft-card {
+  background: var(--card);
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dark .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.dark .craft-card {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+}
+
+.craft-card:hover {
+  border-color: hsl(var(--primary) / 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.dark .craft-card:hover {
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
 /* Custom scrollbar utility for tabs */
@@ -105,7 +116,7 @@
   scrollbar-width: none;
 }
 
-/* Respect prefers-reduced-motion */
+/* Accessible reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

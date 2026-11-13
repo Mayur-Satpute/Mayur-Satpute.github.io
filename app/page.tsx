@@ -6,15 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Briefcase,
-  GraduationCap,
-  User,
-  MessageSquare,
-  Phone,
+import { 
+  Github, 
+  Linkedin, 
+  Mail, 
+  Briefcase, 
+  GraduationCap, 
+  MessageSquare, 
+  Phone, 
   MessageCircle,
   Code2,
   Award,
@@ -33,13 +32,15 @@ import {
   ExternalLink,
   BookOpen,
   FileText,
-  Filter
+  Filter,
+  Check,
+  ChevronRight
 } from "lucide-react";
 
-// Animation Variants
+// Animation Variants (tasteful, fast, lightweight)
 const fadeIn = {
-  hidden: { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const staggerContainer = {
@@ -47,45 +48,40 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1
+      staggerChildren: 0.05,
+      delayChildren: 0.05
     }
   }
 };
 
-const cardHover = {
-  rest: { y: 0, transition: { duration: 0.2, ease: "easeOut" } },
-  hover: { y: -4, transition: { duration: 0.2, ease: "easeOut" } }
-};
-
-// Typewriter / Role Cycler
-function RoleTypewriter() {
+// Natural Role Cycler (Calm, understated)
+function RoleCycler() {
   const roles = [
     "Python Backend Developer",
     "Software Engineer",
     "Django REST Specialist",
     "Tech Creator @buildwithmayurr",
-    "Generative AI Explorer"
+    "Generative AI Builder"
   ];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 2800);
     return () => clearInterval(timer);
   }, [roles.length]);
 
   return (
-    <div className="h-8 sm:h-9 flex items-center justify-center lg:justify-start overflow-hidden">
+    <div className="h-7 sm:h-8 flex items-center justify-center lg:justify-start overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[index]}
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 14, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="text-base sm:text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-indigo-400 to-purple-500"
+          exit={{ y: -14, opacity: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="text-base sm:text-lg font-medium text-primary"
         >
           {roles[index]}
         </motion.span>
@@ -94,7 +90,7 @@ function RoleTypewriter() {
   );
 }
 
-// Contact Form Schema & Component
+// Accessible Contact Form
 interface ContactFormData {
   name: string;
   email: string;
@@ -112,7 +108,6 @@ function ContactForm() {
   } = useForm<ContactFormData>();
 
   const onSubmit = (data: ContactFormData) => {
-    // Generate mailto prefill for immediate native email client integration
     const mailSubject = encodeURIComponent(data.subject || `Inquiry from ${data.name}`);
     const mailBody = encodeURIComponent(
       `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
@@ -133,11 +128,11 @@ function ContactForm() {
           <input
             {...register("name", { required: "Name is required" })}
             type="text"
-            placeholder="e.g. Alex Morgan"
-            className="w-full px-3.5 py-2.5 rounded-xl bg-background/60 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
+            placeholder="e.g. Rahul Sharma"
+            className="w-full px-3.5 py-2.5 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none transition-colors"
           />
           {errors.name && (
-            <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+            <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
           )}
         </div>
 
@@ -154,11 +149,11 @@ function ContactForm() {
               }
             })}
             type="email"
-            placeholder="alex@company.com"
-            className="w-full px-3.5 py-2.5 rounded-xl bg-background/60 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
+            placeholder="rahul@company.com"
+            className="w-full px-3.5 py-2.5 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none transition-colors"
           />
           {errors.email && (
-            <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+            <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -170,8 +165,8 @@ function ContactForm() {
         <input
           {...register("subject")}
           type="text"
-          placeholder="Project Inquiry / Job Opportunity"
-          className="w-full px-3.5 py-2.5 rounded-xl bg-background/60 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
+          placeholder="Engineering Role / Project Collaboration"
+          className="w-full px-3.5 py-2.5 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none transition-colors"
         />
       </div>
 
@@ -182,29 +177,29 @@ function ContactForm() {
         <textarea
           {...register("message", { required: "Message cannot be empty", minLength: { value: 10, message: "At least 10 characters required" } })}
           rows={4}
-          placeholder="Hi Mayur, I came across your portfolio and wanted to discuss..."
-          className="w-full px-3.5 py-2.5 rounded-xl bg-background/60 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all resize-none"
+          placeholder="Hi Mayur, let's discuss an opportunity..."
+          className="w-full px-3.5 py-2.5 rounded-xl bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary text-sm outline-none transition-colors resize-none"
         />
         {errors.message && (
-          <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>
+          <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
         )}
       </div>
 
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full min-h-[46px] bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl text-sm shadow-md transition-all flex items-center justify-center gap-2"
+        className="w-full min-h-[44px] bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
       >
-        <Send className="h-4 w-4" /> Send via Email Client
+        <Send className="h-4 w-4" /> Send Message
       </Button>
 
       {submitted && (
         <motion.p
-          initial={{ opacity: 0, y: 5 }}
+          initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-xs text-emerald-400 text-center font-medium"
+          className="text-xs text-emerald-600 dark:text-emerald-400 text-center font-medium"
         >
-          Opening your email client... Looking forward to connecting!
+          Opening your email client... Looking forward to speaking!
         </motion.p>
       )}
     </form>
@@ -248,8 +243,7 @@ export default function Home() {
       skills: ["Python", "Django", "Django REST Framework", "JWT Auth", "Postman", "RBAC", "SQL"],
       github: "https://github.com/Mayur-Satpute",
       demo: "https://github.com/Mayur-Satpute",
-      gradient: "from-blue-600/20 via-indigo-600/10 to-transparent",
-      icon: <BookOpen className="h-8 w-8 text-blue-400" />
+      icon: <BookOpen className="h-6 w-6 text-primary" />
     },
     {
       title: "MultiPDF AI Assistant",
@@ -259,8 +253,7 @@ export default function Home() {
       skills: ["Python", "Gemini API", "LangChain", "FAISS", "Vector Search", "RAG", "Streamlit"],
       github: "https://github.com/Mayur-Satpute",
       demo: "https://github.com/Mayur-Satpute",
-      gradient: "from-purple-600/20 via-pink-600/10 to-transparent",
-      icon: <FileText className="h-8 w-8 text-purple-400" />
+      icon: <FileText className="h-6 w-6 text-primary" />
     }
   ];
 
@@ -277,22 +270,22 @@ export default function Home() {
   const skillGroups = [
     {
       title: "Backend & Systems",
-      icon: <Terminal className="h-5 w-5 text-blue-400 shrink-0" />,
+      icon: <Terminal className="h-5 w-5 text-primary shrink-0" />,
       items: ["Python", "Django", "Django REST Framework", "RESTful APIs", "JWT Auth", "RBAC", "C# / .NET (Migration)", "CRUD Workflows"]
     },
     {
       title: "Databases & Storage",
-      icon: <Database className="h-5 w-5 text-emerald-400 shrink-0" />,
+      icon: <Database className="h-5 w-5 text-primary shrink-0" />,
       items: ["PostgreSQL", "MySQL", "SQLite", "Drizzle ORM", "Django ORM", "Data Modeling"]
     },
     {
       title: "AI & Modern Stack",
-      icon: <Cpu className="h-5 w-5 text-purple-400 shrink-0" />,
+      icon: <Cpu className="h-5 w-5 text-primary shrink-0" />,
       items: ["Gemini API", "LangChain", "FAISS", "RAG Pipelines", "Claude Code", "Gemini Agent", "AI-Assisted Engineering"]
     },
     {
       title: "Web & Developer Tooling",
-      icon: <Layers className="h-5 w-5 text-amber-400 shrink-0" />,
+      icon: <Layers className="h-5 w-5 text-primary shrink-0" />,
       items: ["NextJS", "Node.js", "Postman", "Git / GitHub", "Docker Basics", "Tailwind CSS", "Bootstrap", "Antigravity IDE"]
     }
   ];
@@ -352,44 +345,54 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative selection:bg-blue-500/25 selection:text-blue-400 w-full flex flex-col justify-between">
+    <div className="min-h-screen bg-background text-foreground relative selection:bg-primary/20 selection:text-primary w-full flex flex-col justify-between">
+      
+      {/* Background Architectural Dot Grid */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-grid-subtle" />
 
-      {/* Animated Subtle Background Atmosphere */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-grid-pattern" />
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-blue-600/10 via-indigo-600/5 to-transparent blur-3xl opacity-70 pointer-events-none -z-10" />
-
-      {/* TOP STICKY NAVBAR */}
-      <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-background/80 border-b border-border/40 transition-colors">
+      {/* TOP NAVIGATION BAR */}
+      <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/90 border-b border-border transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
-
-          {/* Logo */}
+          
+          {/* Logo / Personal Mark */}
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl overflow-hidden border border-border shadow-md group-hover:scale-105 transition-transform shrink-0">
-              <img src="/images/mayur.jpg" alt="Mayur" className="w-full h-full object-cover object-top" />
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-border shadow-sm group-hover:border-primary/50 transition-colors shrink-0 bg-muted">
+              <img 
+                src="./images/mayur.jpg" 
+                alt="Mayur Satpute" 
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  // Fallback if relative path differs
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.endsWith('/images/mayur.jpg')) {
+                    target.src = '/images/mayur.jpg';
+                  }
+                }}
+              />
             </div>
-            <span className="font-bold text-base tracking-tight text-foreground group-hover:text-primary transition-colors">
+            <span className="font-semibold text-sm sm:text-base tracking-tight text-foreground group-hover:text-primary transition-colors">
               Mayur Satpute
             </span>
           </a>
 
-          {/* Nav Links & Controls */}
+          {/* Nav Items & Theme Toggle */}
           <nav className="flex items-center gap-1 sm:gap-2">
             <div className="hidden md:flex items-center gap-1 mr-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-xl border-border">
-                <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <Download className="h-3.5 w-3.5 mr-1.5" /> Resume
-                </a>
+            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-lg border-border hover:bg-muted font-medium">
+              <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Download className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" /> Resume
+              </a>
             </Button>
 
             <ThemeToggle />
@@ -397,77 +400,77 @@ export default function Home() {
         </div>
       </header>
 
-      {/* MAIN CONTAINER */}
+      {/* MAIN CONTENT CANVAS */}
       <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-14 space-y-16 sm:space-y-24 flex-1">
-
+        
         {/* 1. HERO SECTION */}
-        <section id="hero" className="w-full pt-4 sm:pt-6">
+        <section id="hero" className="w-full pt-2 sm:pt-6">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 pb-10 border-b border-border/40"
+            className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-12 pb-10 border-b border-border"
           >
-            {/* Left Column */}
+            {/* Left Content Column */}
             <div className="w-full flex-1 space-y-4 text-center lg:text-left">
-
-              {/* Status Pill */}
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              
+              {/* Status Pill (Calm Sage / Emerald) */}
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Available for Software & Backend Roles
               </motion.div>
 
-              {/* Title */}
-              <motion.h1 variants={fadeIn} className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight text-foreground leading-tight">
-                Hi, I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500">Mayur Satpute</span>
+              {/* Headline */}
+              <motion.h1 variants={fadeIn} className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+                Mayur Satpute
               </motion.h1>
 
-              {/* Typewriter Dynamic Title */}
+              {/* Role Cycler */}
               <motion.div variants={fadeIn}>
-                <RoleTypewriter />
+                <RoleCycler />
               </motion.div>
 
-              {/* Summary Lead */}
+              {/* Subtext */}
               <motion.p variants={fadeIn} className="text-sm sm:text-base md:text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Software Engineer specializing in <span className="text-foreground font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex enterprise systems. Passionate about building robust backend infrastructure and developer education.
+                Software Engineer specializing in <span className="text-foreground font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex enterprise systems. Focused on clean architecture, reliable database workflows, and developer tools.
               </motion.p>
 
-              {/* Meta Location & Creator Pill */}
+              {/* Meta Location & Creator Tag */}
               <motion.div variants={fadeIn} className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-xs sm:text-sm">
-                <span className="inline-flex items-center gap-1.5 text-muted-foreground bg-accent/50 border border-border px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1.5 text-muted-foreground bg-muted/60 border border-border px-3 py-1 rounded-full">
                   <MapPin className="h-3.5 w-3.5 text-primary shrink-0" /> Mumbai, India
                 </span>
-                <a
-                  href="https://www.instagram.com/buildwithmayurr/"
-                  target="_blank"
+                <a 
+                  href="https://www.instagram.com/buildwithmayurr/" 
+                  target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-medium text-pink-500 hover:text-pink-400 transition-colors bg-pink-500/10 border border-pink-500/20 px-2.5 py-1 rounded-full"
+                  className="inline-flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors bg-muted/60 border border-border px-3 py-1 rounded-full"
                 >
-                  <Instagram className="h-3.5 w-3.5 shrink-0" /> Tech Creator @buildwithmayurr
+                  <Instagram className="h-3.5 w-3.5 text-rose-500 shrink-0" /> Creator @buildwithmayurr
                 </a>
               </motion.div>
 
               {/* Primary Call-to-Actions */}
               <motion.div variants={fadeIn} className="w-full flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-2.5 pt-3">
-                <Button asChild className="min-h-[44px] bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-md shadow-primary/20 transition-all rounded-xl text-xs sm:text-sm px-5">
+                <Button asChild className="min-h-[44px] bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-xl text-xs sm:text-sm px-5 shadow-sm">
                   <a href="#projects">
                     <Code2 className="h-4 w-4 mr-1.5 shrink-0" /> View Projects
                   </a>
                 </Button>
 
-                <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-accent rounded-xl text-xs sm:text-sm px-4">
-                    <a href="/images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                      <Download className="h-4 w-4 mr-1.5 shrink-0" /> Download Resume
-                    </a>
-                </Button>
-
-                <Button variant="outline" asChild className="min-h-[44px] border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 rounded-xl text-xs sm:text-sm px-3.5">
-                  <a href="https://linktr.ee/buildwithmayurr" target="_blank" rel="noopener noreferrer">
-                    <Link2 className="h-4 w-4 mr-1.5 shrink-0" /> Linktree
+                <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-muted rounded-xl text-xs sm:text-sm px-4">
+                  <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <Download className="h-4 w-4 mr-1.5 text-muted-foreground shrink-0" /> Download Resume
                   </a>
                 </Button>
 
-                <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-accent rounded-xl text-xs sm:text-sm px-3.5">
+                <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-muted rounded-xl text-xs sm:text-sm px-3.5">
+                  <a href="https://linktr.ee/buildwithmayurr" target="_blank" rel="noopener noreferrer">
+                    <Link2 className="h-4 w-4 mr-1.5 text-primary shrink-0" /> Linktree
+                  </a>
+                </Button>
+
+                <Button variant="outline" asChild className="min-h-[44px] border-border hover:bg-muted rounded-xl text-xs sm:text-sm px-3.5">
                   <a href="https://github.com/Mayur-Satpute" target="_blank" rel="noopener noreferrer">
                     <Github className="h-4 w-4 mr-1.5 shrink-0" /> GitHub
                   </a>
@@ -475,39 +478,43 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Column: Styled Profile Avatar & Bento Summary */}
-            <motion.div
+            {/* Right Column: Featured Portrait & Summary (Pro Photo Display) */}
+            <motion.div 
               variants={fadeIn}
-              whileHover={{ scale: 1.01 }}
-              className="w-full max-w-sm lg:w-80 xl:w-96 glass-panel p-5 sm:p-6 rounded-3xl border border-border shadow-xl shrink-0"
+              className="w-full max-w-sm lg:w-80 xl:w-96 craft-card p-5 sm:p-6 rounded-2xl shrink-0"
             >
-              {/* Profile Photo in Styled Gradient Frame */}
-              <div className="relative mb-5 group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-500" />
-                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-border/80 bg-background shadow-2xl">
+              {/* Profile Photo in Clean Frame */}
+              <div className="relative mb-4 overflow-hidden rounded-xl border border-border bg-muted">
+                <div className="aspect-[4/5] w-full overflow-hidden">
                   <img
-                    src="/images/mayur.jpg"
+                    src="./images/mayur.jpg"
                     alt="Mayur Satpute - Software Engineer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
                     loading="eager"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (!target.src.endsWith('/images/mayur.jpg')) {
+                        target.src = '/images/mayur.jpg';
+                      }
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <div>
-                      <p className="text-base font-bold text-foreground drop-shadow-sm">Mayur Satpute</p>
-                      <p className="text-xs text-muted-foreground font-medium">Software Engineer</p>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 text-emerald-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      Active
-                    </span>
+                </div>
+                <div className="p-3 bg-card border-t border-border flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Mayur Satpute</p>
+                    <p className="text-xs text-muted-foreground">Software Engineer</p>
                   </div>
+                  <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Available
+                  </span>
                 </div>
               </div>
 
-              <div className="space-y-2.5 pt-1">
+              {/* Key Specs */}
+              <div className="space-y-2 pt-1">
                 {highlights.map((h, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs sm:text-sm py-1 border-b border-border/40 last:border-0">
+                  <div key={i} className="flex justify-between items-center text-xs py-1 border-b border-border/50 last:border-0">
                     <span className="text-muted-foreground">{h.label}</span>
                     <span className="text-foreground font-medium text-right ml-2">{h.value}</span>
                   </div>
@@ -524,23 +531,23 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeIn}
-            className="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border border-border"
+            className="craft-card p-6 sm:p-8 md:p-10 rounded-2xl"
           >
-            <div className="flex items-center gap-2.5 mb-4">
+            <div className="flex items-center gap-2.5 mb-3.5">
               <Sparkles className="h-5 w-5 text-primary shrink-0" />
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">Executive Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg mb-6">
-              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>,
-              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across
-              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications.
-              Proven ability to modernize legacy applications (.NET/C#) into scalable cloud services with clean API contracts and automated Postman test suites.
+              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>, 
+              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across 
+              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications. 
+              Experienced in converting legacy applications (.NET/C#) into modern cloud-ready platforms with clean API architectures and automated Postman test suites.
             </p>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-border/60 items-center">
+            <div className="flex flex-wrap gap-2 pt-4 border-t border-border items-center">
               <span className="text-xs sm:text-sm text-muted-foreground mr-2 font-medium">Spoken Languages:</span>
               {["English", "Hindi", "Marathi"].map(lang => (
-                <Badge key={lang} variant="outline" className="border-border text-foreground text-xs sm:text-sm py-1 px-3">
+                <Badge key={lang} variant="outline" className="border-border text-foreground text-xs py-0.5 px-2.5 font-normal">
                   {lang}
                 </Badge>
               ))}
@@ -550,11 +557,9 @@ export default function Home() {
 
         {/* 3. TECHNICAL SKILLS */}
         <section id="skills" className="space-y-6 scroll-mt-20">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Technical Arsenal</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-1">Tools and frameworks engineered for production</p>
-            </div>
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Technical Skills</h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">Core proficiencies, backend systems, and frameworks</p>
           </div>
 
           <motion.div
@@ -568,21 +573,20 @@ export default function Home() {
               <motion.div
                 key={idx}
                 variants={fadeIn}
-                whileHover={{ y: -3 }}
-                className="glass-panel p-5 sm:p-6 rounded-2xl border border-border hover:border-primary/40 transition-all flex flex-col justify-between"
+                className="craft-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2.5 rounded-xl bg-accent border border-border">
+                    <div className="p-2 rounded-lg bg-muted border border-border">
                       {group.icon}
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground">{group.title}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{group.title}</h3>
                   </div>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {group.items.map(item => (
                       <span
                         key={item}
-                        className="px-2.5 py-1 text-xs rounded-lg bg-accent/60 text-foreground border border-border/60 hover:border-primary/50 transition-colors"
+                        className="px-2.5 py-1 text-xs rounded-md bg-muted/60 text-foreground border border-border"
                       >
                         {item}
                       </span>
@@ -598,7 +602,7 @@ export default function Home() {
         <section id="experience" className="space-y-6 scroll-mt-20">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Work Experience</h2>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1">Professional track record in production engineering</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">Engineering contributions in production environments</p>
           </div>
 
           <div className="space-y-6">
@@ -609,13 +613,13 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeIn}
-                className="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border border-border"
+                className="craft-card p-6 sm:p-8 md:p-10 rounded-2xl"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-border/60">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-5 border-b border-border">
                   <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-1.5">
+                    <div className="flex flex-wrap items-center gap-3 mb-1">
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground">{exp.role}</h3>
-                      <Badge className="bg-primary/10 text-primary border border-primary/20 text-xs px-2.5 py-0.5">
+                      <Badge className="bg-primary/10 text-primary border border-primary/20 text-xs px-2.5 py-0.5 font-medium">
                         {exp.tag}
                       </Badge>
                     </div>
@@ -623,23 +627,23 @@ export default function Home() {
                       {exp.company} <span className="text-muted-foreground/50">•</span> <span>{exp.location}</span>
                     </p>
                   </div>
-                  <div className="text-xs sm:text-sm font-medium text-foreground bg-accent px-4 py-2 rounded-xl border border-border w-fit">
+                  <div className="text-xs sm:text-sm font-medium text-foreground bg-muted px-3.5 py-1.5 rounded-lg border border-border w-fit">
                     {exp.period}
                   </div>
                 </div>
 
-                <div className="py-6 space-y-3.5">
+                <div className="py-6 space-y-3">
                   {exp.achievements.map((ach, i) => (
                     <div key={i} className="flex items-start gap-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0 mt-0.5" />
                       <span>{ach}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-5 border-t border-border/60 flex flex-wrap gap-2">
+                <div className="pt-5 border-t border-border flex flex-wrap gap-2">
                   {exp.skills.map(s => (
-                    <Badge key={s} variant="outline" className="border-border text-foreground text-xs py-1 px-2.5">
+                    <Badge key={s} variant="outline" className="border-border text-foreground text-xs py-0.5 px-2.5 font-normal">
                       {s}
                     </Badge>
                   ))}
@@ -649,25 +653,26 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. FEATURED PROJECTS SECTION (Redesigned with Tech Filters & Visual Mockups) */}
+        {/* 5. FEATURED PROJECTS SECTION */}
         <section id="projects" className="space-y-6 scroll-mt-20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Featured Projects</h2>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-1">Production architectures and intelligent systems</p>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1">Backend architectures and intelligent retrieval systems</p>
             </div>
 
             {/* Filter Buttons */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-accent/60 border border-border w-fit">
+            <div className="flex items-center gap-1 p-1 rounded-lg bg-muted border border-border w-fit">
               <Filter className="h-3.5 w-3.5 text-muted-foreground ml-2 mr-1 shrink-0" />
               {filterOptions.map((opt) => (
                 <button
                   key={opt}
                   onClick={() => setProjectFilter(opt)}
-                  className={`px-3 py-1 text-xs font-medium rounded-lg transition-all ${projectFilter === opt
-                      ? "bg-primary text-primary-foreground shadow-sm"
+                  className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${
+                    projectFilter === opt
+                      ? "bg-background text-foreground shadow-sm border border-border"
                       : "text-muted-foreground hover:text-foreground"
-                    }`}
+                  }`}
                 >
                   {opt}
                 </button>
@@ -680,32 +685,29 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
           >
             <AnimatePresence>
-              {filteredProjects.map((proj, idx) => (
+              {filteredProjects.map((proj) => (
                 <motion.div
                   layout
                   key={proj.title}
-                  initial={{ opacity: 0, scale: 0.96 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.3 }}
-                  variants={cardHover}
-                  initial="rest"
-                  whileHover="hover"
-                  className="glass-panel rounded-3xl border border-border hover:border-primary/50 overflow-hidden flex flex-col justify-between transition-shadow shadow-md hover:shadow-xl"
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.2 }}
+                  className="craft-card rounded-2xl overflow-hidden flex flex-col justify-between"
                 >
-                  {/* Visual Image / Gradient Canvas Header */}
-                  <div className={`h-44 sm:h-52 w-full bg-gradient-to-br ${proj.gradient} border-b border-border/60 p-6 flex flex-col justify-between relative overflow-hidden group`}>
+                  {/* Clean Technical Canvas Header */}
+                  <div className="h-40 sm:h-44 w-full bg-muted/40 border-b border-border p-6 flex flex-col justify-between relative">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-background/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-border">
+                      <span className="text-xs font-medium uppercase tracking-wider text-primary bg-background px-2.5 py-0.5 rounded-full border border-border">
                         {proj.category}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <Button variant="ghost" size="icon" asChild className="h-8 w-8 rounded-full bg-background/80 hover:bg-background border border-border">
+                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background border-border">
                           <a href={proj.github} target="_blank" rel="noopener noreferrer" title="View GitHub Repository">
                             <Github className="h-4 w-4" />
                           </a>
                         </Button>
-                        <Button variant="ghost" size="icon" asChild className="h-8 w-8 rounded-full bg-background/80 hover:bg-background border border-border">
+                        <Button variant="outline" size="icon" asChild className="h-8 w-8 rounded-lg bg-background border-border">
                           <a href={proj.demo} target="_blank" rel="noopener noreferrer" title="Live Link">
                             <ExternalLink className="h-4 w-4" />
                           </a>
@@ -714,7 +716,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-end justify-between">
-                      <div className="p-3 rounded-2xl bg-background/70 border border-border/60 shadow-lg backdrop-blur-sm">
+                      <div className="p-2.5 rounded-xl bg-background border border-border shadow-sm">
                         {proj.icon}
                       </div>
                     </div>
@@ -723,7 +725,7 @@ export default function Home() {
                   {/* Body Content */}
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2.5">
+                      <h3 className="text-xl font-bold text-foreground mb-2">
                         {proj.title}
                       </h3>
                       <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6">
@@ -731,9 +733,9 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border/60">
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-border">
                       {proj.skills.map(skill => (
-                        <span key={skill} className="px-2.5 py-1 text-xs rounded-lg bg-accent text-foreground border border-border">
+                        <span key={skill} className="px-2.5 py-1 text-xs rounded-md bg-muted text-foreground border border-border">
                           {skill}
                         </span>
                       ))}
@@ -748,8 +750,8 @@ export default function Home() {
         {/* 6. EDUCATION & CERTIFICATIONS */}
         <section id="education" className="space-y-6 scroll-mt-20">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Education & Honors</h2>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1">Academic foundation and industry credentials</p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Education & Certifications</h2>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">Academic credentials and validated technical coursework</p>
           </div>
 
           <div className="space-y-6">
@@ -759,10 +761,10 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={fadeIn}
-              className="glass-panel p-6 sm:p-8 md:p-10 rounded-3xl border border-border"
+              className="craft-card p-6 sm:p-8 md:p-10 rounded-2xl"
             >
               <div className="flex items-center gap-3 mb-6">
-                <GraduationCap className="h-6 w-6 text-primary shrink-0" />
+                <GraduationCap className="h-5 w-5 text-primary shrink-0" />
                 <h3 className="text-xl font-bold text-foreground tracking-tight">Academic Background</h3>
               </div>
 
@@ -772,7 +774,7 @@ export default function Home() {
                     <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary" />
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
                       <h4 className="text-base sm:text-lg font-semibold text-foreground">{edu.degree}</h4>
-                      <Badge className="w-fit bg-primary/10 text-primary border-primary/20 text-xs sm:text-sm px-2.5 py-0.5">
+                      <Badge className="w-fit bg-primary/10 text-primary border border-primary/20 text-xs px-2.5 py-0.5 font-medium">
                         {edu.badge}
                       </Badge>
                     </div>
@@ -790,17 +792,17 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeIn}
-                className="glass-panel p-6 sm:p-8 rounded-3xl border border-border"
+                className="craft-card p-6 sm:p-8 rounded-2xl"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <Award className="h-6 w-6 text-amber-500 shrink-0" />
+                  <Award className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="text-lg sm:text-xl font-bold text-foreground">Certifications</h3>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   {certifications.map((c, i) => (
-                    <div key={i} className="flex justify-between items-center text-sm sm:text-base p-3.5 rounded-xl bg-accent/40 border border-border">
+                    <div key={i} className="flex justify-between items-center text-sm p-3 rounded-lg bg-muted/50 border border-border">
                       <span className="text-foreground font-medium">{c.name}</span>
-                      <Badge variant="outline" className="border-amber-500/30 text-amber-500 text-xs shrink-0 ml-3 py-0.5 px-2.5">
+                      <Badge variant="outline" className="border-border text-foreground text-xs shrink-0 ml-3 py-0.5 px-2">
                         {c.year}
                       </Badge>
                     </div>
@@ -813,17 +815,17 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeIn}
-                className="glass-panel p-6 sm:p-8 rounded-3xl border border-border"
+                className="craft-card p-6 sm:p-8 rounded-2xl"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <Sparkles className="h-6 w-6 text-purple-500 shrink-0" />
+                  <Sparkles className="h-5 w-5 text-primary shrink-0" />
                   <h3 className="text-lg sm:text-xl font-bold text-foreground">Workshops & Events</h3>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   {events.map((e, i) => (
-                    <div key={i} className="p-3.5 rounded-xl bg-accent/40 border border-border">
-                      <p className="text-sm sm:text-base font-semibold text-foreground">{e.title}</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">{e.org}</p>
+                    <div key={i} className="p-3 rounded-lg bg-muted/50 border border-border">
+                      <p className="text-sm font-semibold text-foreground">{e.title}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{e.org}</p>
                     </div>
                   ))}
                 </div>
@@ -832,81 +834,81 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7. CONTACT & INQUIRY SECTION (Functional Form + Direct Socials) */}
+        {/* 7. CONTACT & INQUIRY SECTION */}
         <section id="contact" className="space-y-8 scroll-mt-20">
-          <div className="text-center max-w-xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">Get In Touch</h2>
+          <div className="text-center max-w-xl mx-auto space-y-1.5">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">Get In Touch</h2>
             <p className="text-xs sm:text-sm text-muted-foreground">
-              Have an opening, a software project, or want to discuss Python & system architectures? Drop a line below.
+              Interested in discussing software opportunities, backend workflows, or collaborations?
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto w-full">
-
-            {/* Interactive Form (7 cols) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 max-w-5xl mx-auto w-full">
+            
+            {/* Functional Form */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={fadeIn}
-              className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-3xl border border-border"
+              className="lg:col-span-7 craft-card p-6 sm:p-8 rounded-2xl"
             >
-              <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                <Mail className="h-5 w-5 text-primary" /> Send a Message
+              <h3 className="text-base sm:text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                <Mail className="h-4 w-4 text-primary" /> Send a Message
               </h3>
               <ContactForm />
             </motion.div>
 
-            {/* Direct Connect Hub (5 cols) */}
+            {/* Direct Connect Directory */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={fadeIn}
-              className="lg:col-span-5 space-y-3"
+              className="lg:col-span-5 space-y-2.5"
             >
               {[
                 {
                   label: "Linktree",
                   value: "linktr.ee/buildwithmayurr",
                   href: "https://linktr.ee/buildwithmayurr",
-                  icon: <Link2 className="h-5 w-5 text-emerald-500 shrink-0" />
+                  icon: <Link2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 },
                 {
                   label: "Email",
                   value: "mayursatpute246@gmail.com",
                   href: "mailto:mayursatpute246@gmail.com",
-                  icon: <Mail className="h-5 w-5 text-blue-500 shrink-0" />
+                  icon: <Mail className="h-4 w-4 text-primary shrink-0" />
                 },
                 {
                   label: "Phone / Call",
                   value: "+91 9172072739",
                   href: "tel:+919172072739",
-                  icon: <Phone className="h-5 w-5 text-emerald-500 shrink-0" />
+                  icon: <Phone className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 },
                 {
                   label: "WhatsApp",
                   value: "Chat on WhatsApp (+91 9172072739)",
                   href: "https://wa.me/919172072739",
-                  icon: <MessageCircle className="h-5 w-5 text-green-500 shrink-0" />
+                  icon: <MessageCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 },
                 {
                   label: "LinkedIn",
                   value: "linkedin.com/in/mayur7pute",
                   href: "https://linkedin.com/in/mayur7pute",
-                  icon: <Linkedin className="h-5 w-5 text-blue-500 shrink-0" />
+                  icon: <Linkedin className="h-4 w-4 text-primary shrink-0" />
                 },
                 {
                   label: "GitHub",
                   value: "github.com/Mayur-Satpute",
                   href: "https://github.com/Mayur-Satpute",
-                  icon: <Github className="h-5 w-5 text-foreground shrink-0" />
+                  icon: <Github className="h-4 w-4 text-foreground shrink-0" />
                 },
                 {
                   label: "Instagram (Creator)",
                   value: "@buildwithmayurr",
                   href: "https://www.instagram.com/buildwithmayurr/",
-                  icon: <Instagram className="h-5 w-5 text-pink-500 shrink-0" />
+                  icon: <Instagram className="h-4 w-4 text-rose-500 shrink-0" />
                 }
               ].map((item, idx) => (
                 <a
@@ -914,10 +916,10 @@ export default function Home() {
                   href={item.href}
                   target={item.href.startsWith("http") || item.href.startsWith("mailto") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-2xl glass-panel border border-border hover:border-primary/50 transition-all group"
+                  className="flex items-center justify-between p-3.5 rounded-xl craft-card hover:border-primary/50 transition-colors group"
                 >
                   <div className="flex items-center gap-3 min-w-0 pr-2">
-                    <div className="p-2 rounded-xl bg-accent border border-border shrink-0">
+                    <div className="p-2 rounded-lg bg-muted border border-border shrink-0">
                       {item.icon}
                     </div>
                     <div className="min-w-0">
@@ -936,20 +938,30 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="mt-16 sm:mt-24 pt-8 sm:pt-12 pb-8 border-t border-border/60 bg-background/50">
+      <footer className="mt-16 sm:mt-24 pt-8 pb-8 border-t border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 sm:pb-8 border-b border-border/60">
-
-            {/* Brand */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1.5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg overflow-hidden border border-border shadow-md shrink-0">
-                  <img src="/images/mayur.jpg" alt="Mayur" className="w-full h-full object-cover object-top" />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-border">
+            
+            {/* Brand Signature */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg overflow-hidden border border-border shrink-0 bg-muted">
+                  <img 
+                    src="./images/mayur.jpg" 
+                    alt="Mayur" 
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      if (!target.src.endsWith('/images/mayur.jpg')) {
+                        target.src = '/images/mayur.jpg';
+                      }
+                    }}
+                  />
                 </div>
-                <span className="text-base font-bold text-foreground tracking-tight">Mayur Satpute</span>
+                <span className="text-sm font-bold text-foreground">Mayur Satpute</span>
               </div>
               <p className="text-xs text-muted-foreground max-w-md">
-                Software Engineer passionate about crafting scalable backend architectures, clean APIs, and modern cloud applications.
+                Software Engineer passionate about crafting scalable backend architectures and modern systems.
               </p>
             </div>
 
@@ -968,7 +980,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={s.title}
-                  className="min-h-[40px] min-w-[40px] flex items-center justify-center rounded-xl bg-accent border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all shrink-0"
+                  className="min-h-[38px] min-w-[38px] flex items-center justify-center rounded-lg bg-muted border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors shrink-0"
                 >
                   {s.icon}
                 </a>
@@ -977,14 +989,11 @@ export default function Home() {
           </div>
 
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground text-center sm:text-left">
-            <p className="flex items-center gap-1.5">
-              <span>© 2026 Mayur Satpute.</span>
-              <span>All rights reserved.</span>
-            </p>
+            <p>© 2026 Mayur Satpute. All rights reserved.</p>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Open to Opportunities
               </span>
               <span>•</span>
