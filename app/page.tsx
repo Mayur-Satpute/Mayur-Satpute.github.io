@@ -478,43 +478,43 @@ export default function Home() {
           </a>
 
           {/* Nav Items & Theme Toggle */}
-            <nav className="flex items-center gap-1.5 sm:gap-2">
-              <div className="hidden md:flex items-center gap-1 mr-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-
-              <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-lg border-border hover:bg-muted font-medium">
-                <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <Download className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" /> Resume
+          <nav className="flex items-center gap-1.5 sm:gap-2">
+            <div className="hidden md:flex items-center gap-1 mr-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
+                >
+                  {link.label}
                 </a>
-              </Button>
+              ))}
+            </div>
 
-              <ThemeToggle />
+            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex text-xs h-9 rounded-lg border-border hover:bg-muted font-medium">
+              <a href="./images/mayur_resume.pdf" download="Mayur_Satpute_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Download className="h-3.5 w-3.5 mr-1.5 text-muted-foreground" /> Resume
+              </a>
+            </Button>
 
-              {/* Mobile Menu Hamburger Button */}
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden w-9 h-9 rounded-xl border-border bg-background"
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-4 w-4 text-foreground" />
-                ) : (
-                  <Menu className="h-4 w-4 text-foreground" />
-                )}
-              </Button>
-            </nav>
+            <ThemeToggle />
+
+            {/* Mobile Menu Hamburger Button */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden w-9 h-9 rounded-xl border-border bg-background"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-4 w-4 text-foreground" />
+              ) : (
+                <Menu className="h-4 w-4 text-foreground" />
+              )}
+            </Button>
+          </nav>
         </div>
 
         {/* Mobile Dropdown Menu Drawer */}
@@ -828,8 +828,8 @@ export default function Home() {
                   key={opt}
                   onClick={() => setProjectFilter(opt)}
                   className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${projectFilter === opt
-                      ? "bg-background text-foreground shadow-sm border border-border"
-                      : "text-muted-foreground hover:text-foreground"
+                    ? "bg-background text-foreground shadow-sm border border-border"
+                    : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
                   {opt}
@@ -1190,7 +1190,7 @@ export default function Home() {
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground text-center sm:text-left">
             <p>© 2026 Mayur Satpute. All rights reserved.</p>
 
-            <div className="flex items-center gap-2">
+            < div className="flex items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Open to Opportunities
