@@ -271,16 +271,16 @@ export default function Home() {
       role: "Software Engineer",
       company: "Texto Digital Softwares Pvt Ltd",
       location: "Navi Mumbai, IND",
-      period: "May 2026 – Sep 2026",
+      period: "May 2026 – Sept 2026",
       tag: "Full-time",
       achievements: [
-        "Architected and executed modernization of legacy .NET/C# systems into high-performance web applications, handling API integration, database migrations, and core business logic.",
-        "Engineered essential ERP modules including Authentication, User Management, Employee Master, and Salary Master with robust Role-Based Access Control (RBAC), validation, and optimized CRUD pipelines.",
-        "Delivered web modernization initiatives utilizing NextJS, Node.js, PostgreSQL, and Drizzle ORM, implementing scalable Multi-Tenant workflows.",
-        "Designed and implemented Subscription Management and Tenant Subscription Control engines spanning custom pricing tiers, feature packages, and quota enforcement.",
-        "Integrated external WhatsApp Cloud APIs covering Template Catalog, Carousel Template, and interactive messaging flows with rigorous Postman automation suites."
+        "Modernized legacy .NET/C# ERP applications into web-based systems, migrating 4 core modules and integrating 15+ REST API endpoints with PostgreSQL-backend business logic.",
+        "Migrated 4 ERP modules (Authentication, User Management, Employee Master, Salary Master), implementing 20+ CRUD workflows, input validations, and RBAC for ~20+ internal users.",
+        "Built 5+ multi-tenant workflows (Tenant Management, Subscription Management) using Node.js, Next.js, PostgreSQL, and Drizzle ORM, covering 3 subscription tiers with tenant-level feature limits.",
+        "Integrated 4 WhatsApp Business API template types (Catalog, Carousel, List, Standard) with admin-configurable messaging settings; tested and documented 30+ endpoints in Postman, reducing integration bugs in UAT.",
+        "Delivered 5 major feature modules in a 4-month sprint cycle, supporting daily deployments for a 3-person engineering team."
       ],
-      skills: ["Python", "Django", "REST APIs", "RBAC", "NextJS", "Node.js", "PostgreSQL", "Drizzle ORM", "Postman", "C# / .NET"]
+      skills: ["Python", "Django", "DRF", "REST APIs", "FastAPI", "RBAC", "Node.js", "Next.js", "PostgreSQL", "Drizzle ORM", "Postman", ".NET / C#"]
     }
   ];
 
@@ -373,22 +373,22 @@ export default function Home() {
     {
       title: "Backend & Systems",
       icon: <Terminal className="h-5 w-5 text-primary shrink-0" />,
-      items: ["Python", "Django", "Django REST Framework", "RESTful APIs", "JWT Auth", "RBAC", "C# / .NET (Migration)", "CRUD Workflows"]
+      items: ["Python", "Django", "DRF", "REST APIs", "FastAPI", "CRUD", "ORM", "Authentication", "RBAC", "API Integration", "SQL"]
     },
     {
       title: "Databases & Storage",
       icon: <Database className="h-5 w-5 text-primary shrink-0" />,
-      items: ["PostgreSQL", "MySQL", "SQLite", "Drizzle ORM", "Django ORM", "Data Modeling"]
+      items: ["MySQL", "SQLite", "PostgreSQL (Exposure)", "Drizzle ORM", "Django ORM", "Database Design"]
     },
     {
-      title: "AI & Modern Stack",
+      title: "AI Tools & Development",
       icon: <Cpu className="h-5 w-5 text-primary shrink-0" />,
-      items: ["Gemini API", "LangChain", "FAISS", "RAG Pipelines", "Claude Code", "Gemini Agent", "AI-Assisted Engineering"]
+      items: ["Gemini API", "Claude Code", "Gemini Agent", "AI-Assisted Development", "LangChain", "FAISS", "Streamlit"]
     },
     {
-      title: "Web & Developer Tooling",
+      title: "Tools & Professional Exposure",
       icon: <Layers className="h-5 w-5 text-primary shrink-0" />,
-      items: ["NextJS", "Node.js", "Postman", "Git / GitHub", "Docker Basics", "Tailwind CSS", "Bootstrap", "Antigravity IDE"]
+      items: ["Git", "GitHub", "Postman", "Antigravity IDE", "VS Code", "Node.js", "NextJS", "HTML", "CSS", "Bootstrap"]
     }
   ];
 
@@ -417,23 +417,23 @@ export default function Home() {
   ];
 
   const certifications = [
-    { name: "Python Programming Certification", year: "2025" },
+    { name: "Python Programming Certification", year: "2026" },
     { name: "SQL for Data Management Certification", year: "2026" },
     { name: "Django Web Development Certification", year: "2026" }
   ];
 
   const events = [
     {
-      title: "Build with AI Bootcamp - AI Agents & Automation",
-      org: "Google for Developers & Hack2Skill"
+      title: "Nutanix .NEXT Mumbai 2026",
+      org: "Explored hybrid multi-cloud architecture, AI-native infrastructure, and enterprise virtualization through hands-on sessions."
     },
     {
-      title: "AWS Summit Mumbai",
-      org: "Cloud Architecture, Scalable Services & AI/ML Innovations"
+      title: "AWS Community Day Mumbai 2026",
+      org: "Attended sessions on AWS serverless architecture, cloud services, and scalable application development."
     },
     {
-      title: "Cloud Community Days Mumbai",
-      org: "Google Cloud, Gemini, and Modern Cloud Security"
+      title: "Synology Solution Day 2026",
+      org: "Gained exposure to enterprise storage systems, NAS architecture, backup & disaster recovery, and private cloud infrastructure."
     }
   ];
 
@@ -694,13 +694,10 @@ export default function Home() {
           >
             <div className="flex items-center gap-2.5 mb-3.5">
               <Sparkles className="h-5 w-5 text-primary shrink-0" />
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">Executive Summary</h2>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">Professional Summary</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg mb-6">
-              Software Engineer with hands-on experience in <strong>ERP and web application modernization</strong>,
-              <strong> REST APIs, authentication, RBAC</strong>, and database workflows. Proven proficiency across
-              <strong> Python, Django, Django REST Framework, SQL</strong>, and integrating cutting-edge AI models (Gemini API, LangChain) into real-world applications.
-              Experienced in converting legacy applications (.NET/C#) into modern cloud-ready platforms with clean API architectures and automated Postman test suites.
+              Software Engineer experienced in modernizing legacy ERP systems into scalable web solutions using <strong>Python, Django, DRF, and FastAPI</strong>. Skilled in <strong>REST API development, JWT authentication, RBAC</strong>, and database design (<strong>MySQL / PostgreSQL</strong>). Motivated to grow in backend engineering.
             </p>
 
             <div className="flex flex-wrap gap-2 pt-4 border-t border-border items-center">
