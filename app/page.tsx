@@ -64,11 +64,9 @@ const staggerContainer = {
 // Natural Role Cycler (Calm, understated)
 function RoleCycler() {
   const roles = [
-    "Tech Creator @buildwithmayurr",
     "Software Engineer",
-    "Python Backend Developer",
-    "Django REST Specialist",
-    "Generative AI Builder"
+    "Tech Creator @buildwithmayurr",
+    "Python Backend Developer"
   ];
   const [index, setIndex] = useState(0);
 
@@ -585,7 +583,7 @@ export default function Home() {
 
               {/* Subtext */}
               <motion.p variants={fadeIn} className="text-sm sm:text-base md:text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                Software Engineer & Tech Creator specializing in <span className="text-foreground font-medium">Python, Django, scalable REST APIs</span>, and modernizing complex systems. Documenting developer journeys and building real-world AI applications for <span className="text-foreground font-medium">@buildwithmayurr</span>.
+                I am a Software Engineer & Tech Creator specializing in <span className="text-foreground font-medium">Python, Django, DRF, and FastAPI</span> to engineer high-throughput REST APIs and modernize legacy ERP systems. Alongside scalable backend engineering, I document developer journeys and build production AI systems for <span className="text-foreground font-medium">@buildwithmayurr</span>.
               </motion.p>
 
               {/* Meta Location & Creator Tag */}
