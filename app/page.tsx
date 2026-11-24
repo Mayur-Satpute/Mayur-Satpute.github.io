@@ -583,7 +583,7 @@ export default function Home() {
 
               {/* Subtext */}
               <motion.p variants={fadeIn} className="text-sm sm:text-base md:text-lg text-muted-foreground font-normal max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                I am a Software Engineer & Tech Creator specializing in <span className="text-foreground font-medium">Python, Django, DRF, and FastAPI</span> to engineer high-throughput REST APIs and modernize legacy ERP systems. Alongside scalable backend engineering, I document developer journeys and build production AI systems for <span className="text-foreground font-medium">@buildwithmayurr</span>.
+                Software Engineer experienced in modernizing legacy ERP systems into scalable web solutions using <span className="text-foreground font-medium">Python, Django, DRF, and FastAPI</span>. Skilled in <span className="text-foreground font-medium">REST APIs, JWT authentication, and database design MySQL</span>. I also create developer content at <span className="text-foreground font-medium">@buildwithmayurr</span> and am eager to grow in backend engineering.
               </motion.p>
 
               {/* Meta Location & Creator Tag */}
