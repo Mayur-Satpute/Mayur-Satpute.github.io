@@ -258,10 +258,9 @@ export default function Home() {
   };
 
   const highlights = [
-    { label: "Engineering", value: "Software Engineer" },
-    { label: "Content & Tech", value: "Tech Creator @buildwithmayurr" },
-    { label: "Core Stack", value: "Python • Django • SQL" },
-    { label: "Modernization", value: "ERP & Cloud Web Apps" }
+    { label: "Engineering", value: "Software Engineer", colSpan: false },
+    { label: "Content & Tech", value: "Tech Creator @buildwithmayurr", colSpan: false },
+    { label: "Core Stack", value: "Python • Django • SQL • FastAPI", colSpan: true }
   ];
 
   const experiences = [
@@ -669,7 +668,12 @@ export default function Home() {
                 {/* Specs Bento Strip below the big photo */}
                 <div className="grid grid-cols-2 gap-2 mt-3 pt-1">
                   {highlights.map((h, i) => (
-                    <div key={i} className="p-2.5 rounded-xl bg-muted/50 border border-border/60">
+                    <div
+                      key={i}
+                      className={`p-2.5 rounded-xl bg-muted/50 border border-border/60 ${
+                        h.colSpan ? "col-span-2" : ""
+                      }`}
+                    >
                       <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{h.label}</p>
                       <p className="text-xs sm:text-sm font-semibold text-foreground truncate mt-0.5">{h.value}</p>
                     </div>
